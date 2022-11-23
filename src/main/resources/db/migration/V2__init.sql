@@ -7,6 +7,7 @@ CREATE TABLE posts (
   likes int NOT NULL,
   user_id bigint NOT NULL,
   time_created timestamp NOT NULL,
+  photos text,
   constraint fk_user_id foreign key(user_id) references users(id)
 );
 
@@ -30,6 +31,8 @@ INSERT INTO posts(content, likes, user_id, time_created)
 VALUES('post 3', 0, 4, '2022/11/15');
 INSERT INTO posts(content, likes, user_id, time_created)
 VALUES('post 4', 0, 5, '2022/11/18');
+INSERT INTO posts(content, likes, user_id, time_created, photos)
+VALUES('Makers photo post', 0, 6, '2022/11/18','https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/34/original/screen-shot-2020-03-30-at-14-28-10.png');
 
 
 INSERT INTO comments(content, user_id, post_id)

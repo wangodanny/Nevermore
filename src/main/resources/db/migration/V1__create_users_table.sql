@@ -28,6 +28,8 @@ INSERT INTO users(username, password, enabled)
 VALUES ('hisham', '123456', true);
 INSERT INTO users(username, password, enabled)
 VALUES ('thomas', '123456', true);
+INSERT INTO users(username, password, enabled)
+VALUES ('1', '1', true);
 
 INSERT INTO authorities(username, authority)
 VALUES ('giorgio', 'ROLE_USER');
