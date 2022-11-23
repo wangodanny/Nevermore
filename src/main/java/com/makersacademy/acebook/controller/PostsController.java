@@ -128,7 +128,7 @@ public class PostsController {
         // create setter method in the model to set the timestamp
         // if the post content is empty
 
-        if (post.content.isEmpty()){
+        if (post.content.isEmpty() && post.photos.isEmpty()){
             // return the /post route
             return new RedirectView("/posts");
         } else {
