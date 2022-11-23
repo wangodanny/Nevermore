@@ -139,4 +139,8 @@ public class PostsController {
         
         // end 
     }
+    @GetMapping("/homepage")
+	public String home() {
+		return "/homepage";
+	}
 }
