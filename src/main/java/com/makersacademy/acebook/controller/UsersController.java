@@ -96,4 +96,6 @@ public class UsersController {
         model.addAttribute("post", new Post());
         return "/users/profile_page";
     }
+   
+    
 }
