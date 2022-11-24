@@ -4,6 +4,7 @@ CREATE TABLE users (
   id bigserial PRIMARY KEY,
   username varchar(50) NOT NULL UNIQUE,
   password varchar(50) NOT NULL,
+  picture varchar(150),
   enabled boolean NOT NULL
 );
 
