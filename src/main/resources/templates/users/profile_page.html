@@ -21,6 +21,16 @@
         Signed in as <span class="name" sec:authentication="name"></span>
       </div>
       <div>
+        <td>
+          <span th:if="${userId != currentUserId}">
+            <form class="post-item" action="#" th:action="@{/friendships}" th:object="${friendship}" method="post">
+              <input type="hidden" class="form-control" th:value="${userId}" th:attr="name='receiver'"/>
+              <input class="btn btn-lg btn-primary btn-block" type="submit" value="Add Friend" />
+            </form>
+          </span>
+        </td>
+      </div>
+      <div>
         <ul class="posts" th:each="post: ${posts}">
           <li>
             <p th:text="${username}">
