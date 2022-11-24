@@ -44,6 +44,15 @@
               autofocus
             />
           </p>
+          <p>Add a profile picture: 
+            <label for="picture" class="sr-only">Picture</label>
+            <input 
+               type="text" 
+               placeholder="Type the URL" 
+               class="form-control" 
+               th:field="*{picture}" 
+               />
+          </p>
           <p>
             <input
               class="btn btn-lg btn-primary btn-block"

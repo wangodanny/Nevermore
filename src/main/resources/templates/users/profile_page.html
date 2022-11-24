@@ -15,7 +15,9 @@
     </div>
     <div class="container">
       <div class="form-signup">
+        
       <h2 class="posts-heading"><span class="name" th:text="${username}"></span>'s Profile</h2>
+      <img id="PFP" th:src="@{${picture}}" width="50" height="50"/>
 
       <div sec:authorize="isAuthenticated()">
         Signed in as <span class="name" sec:authentication="name"></span>
@@ -32,6 +34,12 @@
       </div>
       <div>
         <ul class="posts" th:each="post: ${posts}">
+          <!-- <img th:src="@{${post.picture}}" width="120"/> -->
+
+          <!-- <div class="profilePicture">
+            <img id="PFP" th:src="@{${users[post.user_id-1].picture}}" width="50" height="50"/>
+          </div> -->
+
           <li>
             <p th:text="${username}">
             <p th:text="${post.content}">

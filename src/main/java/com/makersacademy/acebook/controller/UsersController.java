@@ -65,6 +65,10 @@ public class UsersController {
     
             Authority authority = new Authority(user.getUsername(), "ROLE_USER");
             authoritiesRepository.save(authority);
+
+            if(user.picture.isEmpty()){
+                user.setPicture("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+            }
             
         }
 
