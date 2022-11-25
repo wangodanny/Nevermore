@@ -2,17 +2,26 @@
 <html
   xmlns:th="http://www.thymeleaf.org"
   xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+  
 >
+
   <head lang="en">
     <meta charset="UTF-8" />
     <title>Acebook</title>
     <link href="/posts.css" rel="stylesheet" type="text/css" />
     <link href="/navbar.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="topnav">
-      <a class="active" href="/homepage">Home</a>
-      <a class="active" href="/logout">Logout</a>
+      <a class="active" href="/homepage"><i class="fa-solid fa-house"></i> Home</a>
+      <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      <div sec:authorize="isAuthenticated()">
+       <a th:href="@{/users/{id}(id=${currentUserId})}"><i class="fa-solid fa-user"></i> <span class="name" sec:authentication="name"></span> </a>
+      </div>
     </div>
     <div class="container">
       <div class="form-signup">
@@ -31,15 +40,15 @@
       </div>
 
       <form action="#" th:action="@{/posts}" th:object="${post}" method="post">
-        <p>Content: 
+        <p>Create post: 
           <label for="content" class="sr-only">Content</label>
           <input type="text" class="form-control" th:field="*{content}" /></p>
-        <p>Photo: 
+        <p>Add photo: 
             <label for="content" class="sr-only">Photo</label>
             <input type="text" placeholder="Type the URL" class="form-control" th:field="*{photos}" /></p>
         <p>
-          <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" />
-          <input class="btn btn-lg btn-primary btn-block" type="reset" value="Reset" />
+          <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit"/>
+          <input class="btn btn-lg btn-primary btn-block btn-color-secondary" type="reset" value="Reset" />
         </p>
       </form>
       <div>
@@ -49,18 +58,23 @@
           <div class="profilePicture">
             <img id="PFP" th:src="@{${users[post.user_id-1].picture}}" width="50" height="50"/>
           </div>
-
           <li>
             <p><a class="name" th:href="@{/users/{id}(id=${users[post.user_id-1].id})}"><span th:text="${users[post.user_id-1].username}"></span></a></p>
-            <p th:text="${post.content}">
-            <p class="time_created" th:text="${post.time_created}">
-            <p th:text="${post.user_id}">
+            <div class = "post-content"><p th:text="${post.content}"></div>
+          
+            <img th:src="@{${post.photos}}" />
 
             <p th:text="${post.likes}" >
               <strong>likes</strong>
+              <form class="post-item" action="#" th:action="@{/likes}" th:object="${post}" method="post"  >
+  
+                <input type="hidden" class="form-control" th:value="${post.id}" th:attr="name='post_id'"/>
+                <input class="btn btn-lg btn-primary btn-block like-btn" type="submit" value="Like" />
+              </p>
+            </form>
 
             <form class="post-item" action="#" th:action="@{/comments}" th:object="${post}" method="post">
-              <p>Content: 
+              <p>Add your comment: 
                 <label for="content" class="sr-only">Content</label>
                 <input type="text" class="form-control" th:field="*{content}" /></p>
               <p>
@@ -69,16 +83,11 @@
               </p>
             </form>
 
-        
-            <p><a th:href="@{/posts/{id}(id=${post.id})}">See all comments</a></p>
-
+           
+            <p><a th:href="@{/posts/{id}(id=${post.id})}"><i class="fa-solid fa-comments fa-2x"></i></a></p>
+            <p class="time_created" th:text="${post.time_created}"></p>
             
-            <form class="post-item" action="#" th:action="@{/likes}" th:object="${post}" method="post">
-  
-                <input type="hidden" class="form-control" th:value="${post.id}" th:attr="name='post_id'"/>
-                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Like" />
-              </p>
-            </form>
+          
           </li>
         </ul>
         <!-- <form action="#" th:action="@{/comments}" th:object="${comment}" method="post">

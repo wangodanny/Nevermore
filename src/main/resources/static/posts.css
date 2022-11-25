@@ -7,11 +7,12 @@
   padding: 0.5rem;
   text-align: left;
   margin-bottom: 0.5rem;
+  
 }
 
 html {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
@@ -20,15 +21,14 @@ html {
 
 body {
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #191414;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   box-sizing: inherit;
   line-height: 1.5;
-  color: #212529;
+  color: #dcdde1;
   display: block;
 }
 
@@ -51,7 +51,7 @@ form {
   padding: 15px;
   margin: 0 auto;
   margin-top: 10px;
-  box-sizing: inherit;
+  box-sizing: inherit;    
 }
 
 .post-item {
@@ -60,17 +60,22 @@ form {
 
 .posts-heading {
   margin-bottom: 10px;
-  text-decoration: underline;
+  
   font-size: 2rem;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
   display: block;
+  text-align: center;
 }
 
 .name {
-  text-decoration: underline;
+  text-decoration: none;
+   font-weight: bold;
+    font-size: 18px;
+    color: #a4b0be;
+  
 }
 
 p {
@@ -119,7 +124,7 @@ label {
   background-image: none;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: 17px;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
@@ -144,8 +149,8 @@ input {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #4267B2;
+  border-color: #4267B2;
 }
 
 .btn {
@@ -161,24 +166,47 @@ input {
   user-select: none;
   border: 1px solid transparent;
   padding: 0.5rem 0.75rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1;
-  border-radius: 0.25rem;
+  border-radius: 15px;
   transition: all 0.15s ease-in-out;
+  width: 30%;
 }
 
 .posts {
-  background-color: #fff;
-  border-radius: 0.25rem;
+  background-color:#57606f;
+  border-radius: 20px;
+
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
 .time_created {
-  font-size: 0.65rem;
+  font-size: 0.9rem;
   text-align: right;
   margin-top: 30px;
   margin-right: 10px;
+  color: #a4b0be;
+}
+.btn-color-secondary{
+  background-color: #dcdde1;
+    color: #353b48;
+}
+.like-btn{
+  width: 20%;
+  background-color: #FC427B;
+}
+.fa-comments{
+  color: white;
+  height: 10px;
+}
+.post-content{
+  font-weight: bold;
+  font-size: 30px;
+}
+li {
+  list-style: none;
+ 
 }
 
 #PFP{
