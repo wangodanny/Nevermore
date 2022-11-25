@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -64,6 +65,10 @@ public class UsersController {
     
             Authority authority = new Authority(user.getUsername(), "ROLE_USER");
             authoritiesRepository.save(authority);
+
+            if(user.picture.isEmpty()){
+                user.setPicture("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png");
+            }
             
         }
 
@@ -74,8 +79,14 @@ public class UsersController {
     public String profilePage(@PathVariable Long id, Model model) {
         ArrayList<Post> relatedPosts = new ArrayList<>();
 
+        org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentUsername = auth.getName();
+        Long currentUserId = userRepository.findByUsername(currentUsername).get().getId();
+
         Optional<User> user = userRepository.findById(id);
         model.addAttribute("user", user);
+        model.addAttribute("userId", user.get().getId());
+        model.addAttribute("currentUserId", currentUserId);
 
         Iterable<Post> posts = postRepository.findAll();
 
