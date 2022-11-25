@@ -6,12 +6,18 @@
       <title>Signup</title>
       <link href="/signup.css" rel="stylesheet" type="text/css" />
       <link href="/navbar.css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
     </head>
     <body>
+      
       <div class="topnav">
-        <a href="/homepage">Home</a>
-        <a class="active" href="/users/new">Sign Up</a>
-        <a href="/login">Sign In</a>
+       <img th:src='@{/img/acebooklogo.png}'>
+        <a href="/homepage"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="active" href="/users/new"><i class="fa-solid fa-pen-to-square"></i> Sign Up</a>
+        <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Sign In</a>
       </div>
       <div class="container">
         <form
@@ -21,7 +27,7 @@
           th:object="${user}"
           method="post"
         >
-          <h2 class="form-signup-heading">Please sign up</h2>
+          <h2 class="form-signup-heading">Sign up</h2>
           <p>
             <label for="username" class="sr-only">Username</label>
             <input
@@ -52,14 +58,14 @@
               id="submit"
             />
             <input
-              class="btn btn-lg btn-primary btn-block"
+              class="btn btn-lg btn-primary btn-block btn-color-secondary"
               type="reset"
               value="Reset"
             />
           </p>
         </form>
         <h2 class="form-signup-heading">Already have an account:</h2>
-        <button class="btn btn-lg btn-primary btn-block" onclick="window.location.href='/login';">Sign In</button>
+        <button class="btn btn-lg btn-primary btn-width btn-color-secondary" onclick="window.location.href='/login';">Sign In</button>
       </div>
     </body>
   </html>
