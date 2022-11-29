@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>Signup</title>
+      <link href="/signup.css" rel="stylesheet" type="text/css" />
+      <link href="/navbar.css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      
+      <div class="topnav">
+       <img th:src='@{/img/acebooklogo.png}'>
+        <a href="/homepage"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="active" href="/users/new"><i class="fa-solid fa-pen-to-square"></i> Sign Up</a>
+        <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Sign In</a>
+      </div>
+      <div class="container">
+        <form
+          class="form-signup"
+          action="#"
+          th:action="@{/costs}"
+          th:object="${cost}"
+          method="post"
+        >
+          <h2 class="form-signup-heading">Subscriptions</h2>
+          <p>
+            <label for="content" class="sr-only">Subscription</label>
+            <input
+              type="text"
+              th:field="*{content}"
+              class="form-control"
+              placeholder="e.g. Netflix"
+              required
+              autofocus
+            />
+          </p>
+          <p>
+            <label for="price" class="sr-only">Price</label>
+            <input
+              type="text"
+              th:field="*{price}"
+              class="form-control"
+              placeholder="e.g. 5.99"
+              required
+              autofocus
+            />
+          </p>
+          <p>
+            <label for="category" class="sr-only">Category</label>
+          <select name="category" th:field="*{category}"> 
+            <option value="Required"> Required</option>
+            <option value="Leisure"> Leisure</option>
+          </select>
+          </p>
+          <p>
+            <label for="date" class="sr-only">Date</label>
+            <input 
+                type="date"
+                th:field="*{date}"
+                class="form-control"
+                required
+            />
+          </p>
+          <p>
+            <input
+              class="btn btn-lg btn-primary btn-block"
+              type="submit"
+              value="Submit"
+              id="submit"
+            />
+            <input
+              class="btn btn-lg btn-primary btn-block btn-color-secondary"
+              type="reset"
+              value="Reset"
+            />
+          </p>
+        </form>
+      </div>
+    </body>
+  </html>
+</html>
