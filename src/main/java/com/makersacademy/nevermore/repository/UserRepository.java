@@ -1,6 +1,6 @@
-package com.makersacademy.acebook.repository;
+package com.makersacademy.nevermore.repository;
 
-import com.makersacademy.acebook.model.User;
+import com.makersacademy.nevermore.model.User;
 
 import java.util.Optional;
 

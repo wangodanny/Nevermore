@@ -1,6 +1,6 @@
-package com.makersacademy.acebook.repository;
+package com.makersacademy.nevermore.repository;
 
-import com.makersacademy.acebook.model.Authority;
+import com.makersacademy.nevermore.model.Authority;
 import org.springframework.data.repository.CrudRepository;
 
 public interface AuthoritiesRepository extends CrudRepository<Authority, Long> {

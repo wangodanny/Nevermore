@@ -1,4 +1,4 @@
-package com.makersacademy.acebook;
+package com.makersacademy.nevermore;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
         
         .antMatchers(HttpMethod.GET, "/csrf-token").permitAll()
-                .antMatchers("/posts").hasRole("USER")
+                .antMatchers("/homepage").hasRole("USER")
                 .antMatchers("/users").permitAll()
                 .and().formLogin().loginPage("/logon").permitAll()
                 .and()
