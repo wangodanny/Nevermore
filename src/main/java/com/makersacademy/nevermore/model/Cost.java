@@ -15,7 +15,7 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "USERS")
+@Table(name = "COSTS")
 public class Cost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +26,9 @@ public class Cost {
     private String category;
     public Date date;
 
-    // public Cost() {
+    public Cost() {
         
-    // }
+    }
 
     public Cost(Long user_id, String content, int price, String category, Date date) {
         this.user_id = user_id;
@@ -42,15 +42,15 @@ public class Cost {
         
     // }
 
-    public String getUsername() { return this.username; }
-    public String getPassword() { return this.password; }
+    public Long getUserid() { return this.user_id; }
+    public String getcontent() { return this.content; }
 
-    public String getPicture()  { return this.picture;}
+    public Integer getPrice()  { return this.price;}
 
 
     public Long getId() { return this.id; }
 
-    public void setUsername(String username) { this.username = username; }
-    public void setPassword(String password) { this.password = password; }
-    public void setPicture(String pic) { this.picture = pic;}
+    public void setUserid(Long user_id) { this.user_id = user_id;}
+    public void setContent(String content) { this.content = content; }
+    public void setPrice(Integer price) { this.price = price;}
 }
