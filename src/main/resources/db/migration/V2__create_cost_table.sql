@@ -6,7 +6,7 @@ content varchar(250) NOT NULL,
 price int NOT NULL, 
 user_id bigint NOT NULL, 
 category varchar(50) NOT NULL, 
-date timestamp NOT NULL,
+date timestamp,
 constraint fk_user_id foreign key(user_id) references users(id)
 );
 
