@@ -13,12 +13,12 @@
     </head>
     <body>
       
-      <div class="topnav">
-       <img th:src='@{/img/acebooklogo.png}'>
-        <a href="/homepage"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="active" href="/users/new"><i class="fa-solid fa-pen-to-square"></i> Sign Up</a>
-        <a href="/login"><i class="fa-solid fa-right-to-bracket"></i> Sign In</a>
-      </div>
+        <div class="topnav">
+            <a href="/homepage">Home</a>
+            <a class="active" href="/costs/new">Subscriptions</a>
+            <a href="/users/new">Sign Up</a>
+            <a href="/login">Sign In </a>
+          </div>
       <div class="container">
         <form
           class="form-signup"
@@ -57,15 +57,15 @@
             <option value="Leisure"> Leisure</option>
           </select>
           </p>
-          <p>
+          <!-- <p>
             <label for="date" class="sr-only">Date</label>
             <input 
                 type="date"
-                th:field="*{date}"
+                th:field="*{date}" 
                 class="form-control"
                 required
             />
-          </p>
+          </p> -->
           <p>
             <input
               class="btn btn-lg btn-primary btn-block"
