@@ -56,6 +56,7 @@ return "costs/new";
 
         Date timeStamp = new Date();
         cost.setDate(timeStamp);
+        costRepository.save(cost);
 
         System.out.println(cost.getcontent());
         System.out.println(cost.getCategory());
