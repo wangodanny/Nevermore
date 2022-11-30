@@ -50,6 +50,9 @@ return "costs/new";
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         Optional<User> currentUser = userRepository.findByUsername(name); 
+        Optional<Cost> currentOptional = costRepository.findLatestCostPerUser(); 
+        Cost latestItem = currentOptional.get();
+        String lastBought = latestItem.getcontent();
         User userObj = currentUser.get(); 
         Long userId = userObj.getId();
         cost.setUserid(userId);
@@ -64,7 +67,10 @@ return "costs/new";
         System.out.println(cost.getUser_id());
         System.out.println(cost.getDate());
 
+        System.out.println(lastBought);
+       
 
+        
 
         return new RedirectView("/dashboard");
 
