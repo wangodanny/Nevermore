@@ -52,37 +52,40 @@ return "costs/new";
         Optional<User> currentUser = userRepository.findByUsername(name); 
         User userObj = currentUser.get(); 
         Long userId = userObj.getId();
-        System.out.println(userId);
         cost.setUserid(userId);
 
         Date timeStamp = new Date();
         cost.setDate(timeStamp);
+
+        System.out.println(cost.getcontent());
+        System.out.println(cost.getCategory());
+        System.out.println(cost.getPrice());
+        System.out.println(cost.getUser_id());
+        System.out.println(cost.getDate());
+
+
 
         return new RedirectView("/dashboard");
 
     }
 
 
-    // @GetMapping("/costs/{id}")
-    // public String show(@PathVariable Long id, Model model){
-    //     Optional<Cost> objCost = userRepository.findById(id);
+    @GetMapping("/costs/{id}")
+    public String show(@PathVariable Long id, Model model){
         
-    //     Iterable<Cost> costs = costRepository.findAll();
+        Iterable<Cost> costs = costRepository.findAll();
 
-    //     ArrayList<Cost> relatedCosts = new ArrayList<>();
+        ArrayList<Cost> relatedCosts = new ArrayList<>();
 
-    //     Cost cost = objCost.get();
-    //     model.addAttribute("cost", cost);
-
-    //     for (Cost c: costs) {
-    //         if (c.getUserid() == id) {
-    //             relatedCosts.add(c);
-    //         }
-    //     }
-    //     model.addAttribute("costs", relatedCosts);
-    //     model.addAttribute("cost", new Cost());
-    //     // model.addAttribute("post", new Post());
-    //     return "posts/show";
-    // }
+        for (Cost c: costs) {
+            if (c.getUserid() == id) {
+                relatedCosts.add(c);
+            }
+        }
+        model.addAttribute("costs", relatedCosts);
+        model.addAttribute("cost", new Cost());
+        // model.addAttribute("post", new Post());
+        return "posts/show";
+    }
 }
 
