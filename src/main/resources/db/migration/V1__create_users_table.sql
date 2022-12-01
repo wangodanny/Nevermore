@@ -4,7 +4,6 @@ CREATE TABLE users (
   id bigserial PRIMARY KEY,
   username varchar(50) NOT NULL UNIQUE,
   password varchar(50) NOT NULL,
-  salary integer,
   enabled boolean NOT NULL
 );
 
@@ -17,14 +16,14 @@ CREATE TABLE authorities (
 
 create unique index ix_auth_username on authorities(username, authority);
 
-INSERT INTO users(username, password, salary, enabled)
-VALUES ('danny', '123456', 1200, true);
-INSERT INTO users(username, password,  salary, enabled)
-VALUES ('hisham', '123456', 2500, true);
-INSERT INTO users(username, password,  salary, enabled)
-VALUES ('thomas', '123456', 1500, true);
-INSERT INTO users(username, password,  salary, enabled)
-VALUES ('debs', '123456', 2800, true);
+INSERT INTO users(username, password, enabled)
+VALUES ('danny', '123456', true);
+INSERT INTO users(username, password, enabled)
+VALUES ('hisham', '123456', true);
+INSERT INTO users(username, password, enabled)
+VALUES ('thomas', '123456', true);
+INSERT INTO users(username, password, enabled)
+VALUES ('debs', '123456', true);
 
 
 INSERT INTO authorities(username, authority)
