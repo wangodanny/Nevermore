@@ -20,26 +20,30 @@ public class User {
     private Long id;
     private String username;
     private String password;
+    private String image;
     private boolean enabled;
 
     public User() {
         this.enabled = TRUE;
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String image) {
         this.username = username;
         this.password = password;
+        this.image = image;
         this.enabled = TRUE;
     }
 
-    public User(String username, String password, boolean enabled, String pict) {
+    public User(String username, String password, boolean enabled, String image) {
         this.username = username;
         this.password = password;
+        this.image = image;
         this.enabled = enabled;
     }
 
     public String getUsername() { return this.username; }
     public String getPassword() { return this.password; }
+    public String getImage() { return this.image; }
 
 
 
@@ -47,4 +51,7 @@ public class User {
 
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
+    public void setImage(String image) { this.image = image; }
+
+    
 }
