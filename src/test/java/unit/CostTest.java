@@ -13,7 +13,7 @@ import com.makersacademy.nevermore.model.Cost;
 public class CostTest {
     private Cost cost = new Cost();
     public Date timestamp = new Date();
-    public Integer price = 5;
+    public Double price = 5.0;
     public Long userID = (long) 2;
 
     @Before
