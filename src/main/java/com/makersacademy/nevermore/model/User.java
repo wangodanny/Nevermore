@@ -25,7 +25,6 @@ public class User {
     private String username;
     private String password;
     private boolean enabled;
-    private Integer salary;
 
     @OneToMany(mappedBy = "user")
     private Set<Cost> costs;
@@ -34,11 +33,10 @@ public class User {
         this.enabled = TRUE;
     }
 
-    public User(String username, String password, Integer salary) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
         this.enabled = TRUE;
-        this.salary = salary;
     }
 
     public User(String username, String password, boolean enabled, String pict) {
