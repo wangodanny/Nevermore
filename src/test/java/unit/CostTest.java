@@ -13,7 +13,7 @@ import com.makersacademy.nevermore.model.Cost;
 public class CostTest {
     private Cost cost = new Cost();
     public Date timestamp = new Date();
-    public Double price = 5.0;
+    public Integer price = 5;
     public Long userID = (long) 2;
 
     @Before
@@ -27,13 +27,12 @@ public class CostTest {
 
     @Test
     public void costHasCorrectPrice(){
-        //assertEquals(price, cost.getPrice());
+        assertEquals(price, cost.getPrice());
     }
 
     @Test
     public void costHasCorrectContent(){
-        //assertThat(cost.getContent(), containsString("Disney Plus+"));
-
+     
     }
 
     @Test
@@ -43,7 +42,7 @@ public class CostTest {
     
     @Test
     public void costHasCorrectUserID(){
-        //assertEquals(userID, cost.getUserid());
+   
     }
 
     @Test
