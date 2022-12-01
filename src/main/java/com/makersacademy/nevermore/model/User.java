@@ -3,6 +3,8 @@ package com.makersacademy.nevermore.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import javax.persistence.GenerationType;
@@ -10,6 +12,8 @@ import javax.persistence.GenerationType;
 import lombok.Data;
 
 import static java.lang.Boolean.TRUE;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -23,6 +27,12 @@ public class User {
     private String image;
     private boolean enabled;
     private Integer salary;
+
+    // This is a uni-directional relationship
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private Set<Cost> costs;
+
 
     public User() {
         this.enabled = TRUE;
@@ -54,7 +64,10 @@ public class User {
 
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
+    public Set<Cost> getCosts() {return this.costs;}
+
     public void setImage(String image) { this.image = image; }
+    public void addCost(Cost cost) {this.costs.add(cost);}
 
     
 }
