@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS costs;
 CREATE TABLE costs (
 id bigserial PRIMARY KEY,
 content varchar(250) NOT NULL, 
-price double precision NOT NULL, 
+price int NOT NULL, 
 user_id bigint NOT NULL, 
 category varchar(50) NOT NULL, 
 date timestamp,
