@@ -57,10 +57,11 @@ public class Cost {
     public String getCategory() { return this.category;}
     public Long getId() { return this.id; }
     public Date getDate() {return this.date;}
+
     public User getUser() {
         return this.user;
     }
-    
+
     //Setters
     public void setUser(User user) {
         this.user = user;
