@@ -7,7 +7,6 @@ import com.makersacademy.nevermore.repository.AuthoritiesRepository;
 import com.makersacademy.nevermore.repository.CostRepository;
 import com.makersacademy.nevermore.repository.UserRepository;
 
-import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -44,11 +43,31 @@ return "costs/new";
 }
 
 @PostMapping("/costs")
-    public RedirectView create(@ModelAttribute Cost cost, Principal principal) {
-        User currentUser = userRepository.findByUsername(principal.getName()).get();
-        cost.setUser(currentUser);
+    public RedirectView create(@ModelAttribute Cost cost) {
+
+        // get the current user
+       // String name = principal.getName();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        Optional<User> currentUser = userRepository.findByUsername(name); 
+        User userObj = currentUser.get(); 
+        Long userId = userObj.getId();
+        cost.setUserid(userId);
+
+        Date timeStamp = new Date();
+        cost.setDate(timeStamp);
         costRepository.save(cost);
+
+        System.out.println(cost.getcontent());
+        System.out.println(cost.getCategory());
+        System.out.println(cost.getPrice());
+        System.out.println(cost.getUser_id());
+        System.out.println(cost.getDate());
+
+
+
         return new RedirectView("/dashboard");
+
     }
 
 
