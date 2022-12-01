@@ -44,22 +44,25 @@ return "costs/new";
 
 @PostMapping("/costs")
     public RedirectView create(@ModelAttribute Cost cost) {
-
+        System.out.println("this is a stop ");
         // get the current user
        // String name = principal.getName();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
-        Optional<User> currentUser = userRepository.findByUsername(name); 
-        Optional<Cost> currentOptional = costRepository.findLatestCostPerUser(); 
-        Cost latestItem = currentOptional.get();
-        String lastBought = latestItem.getcontent();
-        User userObj = currentUser.get(); 
-        Long userId = userObj.getId();
-        cost.setUserid(userId);
+        User currentUser = userRepository.findByUsername(name).get(); 
+        currentUser.addCost(cost);
+        //System.out.println(currentUser.getCosts());
+        //userRepository.save(currentUser);
+        // Optional<Cost> currentOptional = costRepository.findLatestCostPerUser(); 
+        // Cost latestItem = currentOptional.get();
+        // String lastBought = latestItem.getcontent();
+     
+      
+       
 
         Date timeStamp = new Date();
         cost.setDate(timeStamp);
-        costRepository.save(cost);
+        
 
         System.out.println(cost.getcontent());
         System.out.println(cost.getCategory());
@@ -67,7 +70,7 @@ return "costs/new";
         System.out.println(cost.getUser_id());
         System.out.println(cost.getDate());
 
-        System.out.println(lastBought);
+        // System.out.println(lastBought);
        
 
         

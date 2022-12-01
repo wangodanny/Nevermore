@@ -3,6 +3,7 @@ package com.makersacademy.nevermore.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import javax.persistence.GenerationType;
@@ -11,10 +12,14 @@ import lombok.Data;
 
 import static java.lang.Boolean.TRUE;
 
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "USERS")
 public class User {
+    @OneToMany
+    private Set<Cost> costs;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,6 +30,9 @@ public class User {
     public User() {
         this.enabled = TRUE;
     }
+    public void addCost(Cost cost) {
+        costs.add(cost)
+     ;}
 
     public User(String username, String password) {
         this.username = username;
@@ -40,7 +48,8 @@ public class User {
 
     public String getUsername() { return this.username; }
     public String getPassword() { return this.password; }
-
+    
+    public Set<Cost> getCosts() { return costs; }
 
 
     public Long getId() { return this.id; }

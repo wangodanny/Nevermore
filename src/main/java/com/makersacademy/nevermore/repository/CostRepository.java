@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface CostRepository extends CrudRepository<Cost, Long> {
 
   @Query(
-  value = "SELECT content FROM costs WHERE user_id = 2 limit 1", 
+  value = "SELECT content FROM costs WHERE user_id = 2 ORDER BY id DESC limit 1;", 
   nativeQuery = true)
   Optional<Cost> findLatestCostPerUser();
     
