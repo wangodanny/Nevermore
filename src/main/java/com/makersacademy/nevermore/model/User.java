@@ -22,16 +22,19 @@ public class User {
     private String password;
     private String image;
     private boolean enabled;
+    private Integer salary;
 
     public User() {
         this.enabled = TRUE;
     }
 
-    public User(String username, String password, String image) {
+
+    public User(String username, String password, String image, Integer salary) {
         this.username = username;
         this.password = password;
         this.image = image;
         this.enabled = TRUE;
+        this.salary = salary;
     }
 
     public User(String username, String password, boolean enabled, String image) {

@@ -78,11 +78,7 @@ return "costs/new";
 
         ArrayList<Cost> relatedCosts = new ArrayList<>();
 
-        for (Cost c: costs) {
-            if (c.getUserid() == id) {
-                relatedCosts.add(c);
-            }
-        }
+        
         model.addAttribute("costs", relatedCosts);
         model.addAttribute("cost", new Cost());
         // model.addAttribute("post", new Post());
