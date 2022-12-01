@@ -23,7 +23,6 @@ public class CostTest {
         cost.setContent("Disney Plus+");
         cost.setDate(timestamp);
         cost.setCategory("Leisure");
-
     }
 
     @Test
@@ -34,6 +33,7 @@ public class CostTest {
     @Test
     public void costHasCorrectContent(){
         //assertThat(cost.getContent(), containsString("Disney Plus+"));
+
     }
 
     @Test
