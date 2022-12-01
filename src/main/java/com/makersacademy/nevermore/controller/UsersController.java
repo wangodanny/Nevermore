@@ -1,8 +1,6 @@
 package com.makersacademy.nevermore.controller;
 
-import com.makersacademy.nevermore.model.Authority;
 import com.makersacademy.nevermore.model.User;
-import com.makersacademy.nevermore.repository.AuthoritiesRepository;
 import com.makersacademy.nevermore.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -24,8 +22,6 @@ public class UsersController {
 
     @Autowired
     UserRepository userRepository;
-    @Autowired
-    AuthoritiesRepository authoritiesRepository;
 
     @GetMapping("/users/new")
     public String signup(Model model) {
@@ -54,12 +50,7 @@ public class UsersController {
         else {
             userRepository.save(user);
             System.out.println("we are in the post request");
-            System.out.println(user);
-    
-            Authority authority = new Authority(user.getUsername(), "ROLE_USER");
-            authoritiesRepository.save(authority);
-
-            
+            System.out.println(user);    
         }
 
         return new RedirectView("/login");
