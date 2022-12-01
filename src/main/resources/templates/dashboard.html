@@ -5,21 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Please sign in</title>
+    <title>Dashboard</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="/signin.css" rel="stylesheet"/>
     <link href="/navbar.css" rel="stylesheet"/>
+    <link href="/dashboard.css" rel="stylesheet"/>
+    <link href="/graphs.css" rel="stylesheet"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body>
+    
     <div class="topnav">
-      <a href="/homepage">Home</a>
+      <a class="active" href="/dashboard">Home</a>
       <a href="/costs/new">Subscriptions</a>
       <a href="/users/new">Sign Up</a>
-      <a class="active" href="/login">Sign In </a>
+      <a href="/login">Sign In </a>
       <a href="/costs/new">New Cost</a>
     </div>
+
+    <div class="grid-layout">
+      <div class="grid-item span-5 grid-item-1">
+        <h1>Hi Debs</h1>
+        <h1 class="centre">£542 chart goes here</h1>
+        
+        <button class="button">Add sub</button>
+        <button class="button">Remove sub</button>
+      </div>
+      <div class="grid-item span-4 grid-item-2">
+        <h1>Current Cost</h1>
+
+      </div>
+      <div class="grid-item span-2 grid-item-3">item 3</div>
+      <div class="grid-item span-2 spangrid-item-4">item 4</div>
+      <div class="grid-item span-2 grid-item-5">item 5</div>
+  </div>
+
+
   </body>

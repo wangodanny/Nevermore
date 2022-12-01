@@ -1,0 +1,111 @@
+#container {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 20vh;
+    position: relative;
+    justify-content: space-evenly;
+   
+}
+.card{
+    background-image: linear-gradient(purple, rgb(96, 13, 129), rgb(143, 58, 143));
+    border: 3px rgb(2,0,36);
+    padding: 8px;
+    border-radius: 12px;
+    width: 100%;
+    float: left;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card1{
+    background-image: linear-gradient(purple, rgb(96, 13, 129), rgb(143, 58, 143));
+    border: 3px rgb(2,0,36);
+    padding: 8px;
+    border-radius: 12px;
+    width: 100%;
+    float: right;
+   
+   
+}
+
+.topright {
+    width: 10%;
+    position: absolute;
+    top: -7px;
+    right: 0px;
+    border-radius: 12px;
+}
+
+.centre {
+    text-align: center;
+}
+
+.button {
+    border: none;
+    color: white;
+    background-color: gray;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 12px;
+    margin: 3px 1px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 30%;
+    height: 10%;
+    display: inline-block;
+   
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 1px;
+    grid-auto-rows: minmax(180px, auto);
+    grid-auto-flow: dense;
+    padding: 1px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    gap: 10px;
+   
+}
+
+.grid-item {
+    padding: 1rem;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    background-image: linear-gradient(purple, rgb(96, 13, 129), rgb(143, 58, 143));
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem;
+    
+}
+
+
+
+.span-2 {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.span-3 {
+    grid-column-end: span 4;
+    
+}
+
+.span-4 {
+    grid-column-end: span 3;
+    grid-row-end: span 3;
+}
+
+.span-5 {
+    grid-column-end: span 4;
+    grid-row: span 3;
+}
