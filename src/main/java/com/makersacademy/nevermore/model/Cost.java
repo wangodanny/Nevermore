@@ -20,21 +20,21 @@ import java.util.Date;
 @Entity
 @Table(name = "COSTS")
 public class Cost {
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable=false,insertable=false ,updatable=false)
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user_id;
+
     private String content;
     private int price;
     private String category;
     public Date date;
 
-    public Cost() {
-        
-    }
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
+    public Cost() {}
 
     public Cost(String content, Integer price, String category) {
         this.content = content;
@@ -43,25 +43,28 @@ public class Cost {
         
     }
 
-    public Cost(String content, int price, String category, Long user_id, Date date) {
+    public Cost(String content, int price, String category, Date date) {
         this.content = content;
         this.price = price;
         this.category = category;
-        this.user_id = user_id;
         this.date = date;
     }
 
     
     //Getters
-    public Long getUserid() { return this.user_id; }
     public String getcontent() { return this.content; }
     public Integer getPrice()  { return this.price;}
     public String getCategory() { return this.category;}
     public Long getId() { return this.id; }
     public Date getDate() {return this.date;}
+    public User getUser() {
+        return this.user;
+    }
     
     //Setters
-    public void setUserid(Long user_id) { this.user_id = user_id;}
+    public void setUser(User user) {
+        this.user = user;
+    }
     public void setContent(String content) { this.content = content; }
     public void setPrice(Integer price) { this.price = price;}
     public void setCategory(String category) { this.category = category;}

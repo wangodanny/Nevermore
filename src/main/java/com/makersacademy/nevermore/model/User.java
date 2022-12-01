@@ -18,8 +18,7 @@ import java.util.Set;
 @Entity
 @Table(name = "USERS")
 public class User {
-    @OneToMany
-    private Set<Cost> costs;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,12 +26,12 @@ public class User {
     private String password;
     private boolean enabled;
 
+    @OneToMany(mappedBy = "user")
+    private Set<Cost> costs;
+
     public User() {
         this.enabled = TRUE;
     }
-    public void addCost(Cost cost) {
-        costs.add(cost)
-     ;}
 
     public User(String username, String password) {
         this.username = username;
@@ -51,6 +50,9 @@ public class User {
     
     public Set<Cost> getCosts() { return costs; }
 
+    public void addCost(Cost newCost) {
+        this.costs.add(newCost);
+    }
 
     public Long getId() { return this.id; }
 
