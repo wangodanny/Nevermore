@@ -53,7 +53,7 @@ public class Cost {
     public String getCategory() { return this.category;}
     public Long getId() { return this.id; }
     public Date getDate() {return this.date;}
-    
+
     //Setters
     public void setUserid(Long user_id) { this.user_id = user_id;}
     public void setContent(String content) { this.content = content; }
