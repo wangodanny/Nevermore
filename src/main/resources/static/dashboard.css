@@ -69,8 +69,8 @@ body {
     grid-auto-rows: minmax(180px, auto);
     grid-auto-flow: dense;
     padding: 1px;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
     gap: 10px;
    
 }
@@ -83,6 +83,8 @@ body {
     color: #000;
     background-image: linear-gradient(purple, rgb(96, 13, 129), rgb(143, 58, 143));
     border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem;
     
 }
 
@@ -104,6 +106,6 @@ body {
 }
 
 .span-5 {
-    grid-column-end: span 2;
-    grid-row: span 2;
+    grid-column-end: span 4;
+    grid-row: span 3;
 }
