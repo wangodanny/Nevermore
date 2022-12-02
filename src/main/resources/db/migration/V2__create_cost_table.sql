@@ -4,7 +4,7 @@ CREATE TABLE costs (
 id bigserial PRIMARY KEY,
 content varchar(250) NOT NULL, 
 price double precision NOT NULL, 
-user_id bigint NOT NULL, 
+user_id bigint, 
 category varchar(50) NOT NULL, 
 date timestamp,
 constraint fk_user_id foreign key(user_id) references users(id)

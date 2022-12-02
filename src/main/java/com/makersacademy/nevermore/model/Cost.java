@@ -13,6 +13,8 @@ import static java.lang.Boolean.TRUE;
 
 import java.util.Date;
 
+// Note that there's no reference to user here
+
 @Data
 @Entity
 @Table(name = "COSTS")
@@ -20,7 +22,6 @@ public class Cost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user_id;
     private String content;
     private Double price;
     private String category;
@@ -37,17 +38,15 @@ public class Cost {
         
     }
 
-    public Cost(String content, Double price, String category, Long user_id, Date date) {
+    public Cost(String content, Double price, String category, Date date) {
         this.content = content;
         this.price = price;
         this.category = category;
-        this.user_id = user_id;
         this.date = date;
     }
 
     
     //Getters
-    public Long getUserid() { return this.user_id; }
     public String getcontent() { return this.content; }
     public Double getPrice()  { return this.price;}
     public String getCategory() { return this.category;}
@@ -55,7 +54,6 @@ public class Cost {
     public Date getDate() {return this.date;}
 
     //Setters
-    public void setUserid(Long user_id) { this.user_id = user_id;}
     public void setContent(String content) { this.content = content; }
     public void setPrice(Double price) { this.price = price;}
     public void setCategory(String category) { this.category = category;}
