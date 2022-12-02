@@ -13,6 +13,7 @@ import lombok.Data;
 
 import static java.lang.Boolean.TRUE;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -31,7 +32,7 @@ public class User {
     // This is a uni-directional relationship
     @OneToMany
     @JoinColumn(name = "user_id")
-    private Set<Cost> costs;
+    private List<Cost> costs;
 
 
     public User() {
@@ -65,7 +66,8 @@ public class User {
 
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
-    public Set<Cost> getCosts() {return this.costs;}
+
+    public List<Cost> getCosts() {return this.costs;}
     public void setSalary(Integer salary) { this.salary = salary; }
 
     public void setImage(String image) { this.image = image; }
