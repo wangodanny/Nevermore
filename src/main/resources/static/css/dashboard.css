@@ -57,9 +57,11 @@
 }
 
 body {
-    font-family: sans-serif;
-    background-color: #f2f2f2;
+    background: rgb(32,13,62);
+    background: linear-gradient(20deg, rgba(32,13,62,1) 0%, rgba(55,9,121,1) 38%, rgba(92,0,198,1) 100%);
     margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
 }
 
 .grid-layout {
@@ -79,19 +81,51 @@ body {
     padding: 1rem;
     font-size: 14px;
     font-weight: bold;
-    text-transform: uppercase;
-    color: #000;
-    background-image: linear-gradient(purple, rgb(96, 13, 129), rgb(143, 58, 143));
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
+    border: 1px solid rgba(255, 255, 255, 0.44);
     padding: 2rem;
-    margin: 2rem;
-    
+    margin: 1rem;
+    filter: drop-shadow(5px 5px 16px #000);
+}
+
+.grid-item-3 {
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.11);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(1.1px);
+-webkit-backdrop-filter: blur(1.1px);
+border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid-item-4 {
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.11);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(1.1px);
+-webkit-backdrop-filter: blur(1.1px);
+border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.grid-item-5 {
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.11);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(1.1px);
+-webkit-backdrop-filter: blur(1.1px);
+border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 
 
 .span-2 {
-    grid-column-end: span 2;
+    grid-column-end: span 3;
     grid-row-end: span 2;
 }
 
@@ -106,6 +140,6 @@ body {
 }
 
 .span-5 {
-    grid-column-end: span 4;
+    grid-column-end: span 6;
     grid-row: span 3;
 }

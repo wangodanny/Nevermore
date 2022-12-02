@@ -30,7 +30,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
         
         .antMatchers(HttpMethod.GET, "/csrf-token").permitAll()
-                .antMatchers("/homepage").hasRole("USER")
+                .antMatchers("/dashboard").hasRole("USER")
+                .antMatchers("/costs").hasRole("USER")
+                .antMatchers("/costs/new").hasRole("USER")
                 .antMatchers("/users").permitAll()
                 .and().formLogin().loginPage("/logon").permitAll()
                 .and()
