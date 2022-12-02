@@ -57,6 +57,7 @@ public class User {
     public String getUsername() { return this.username; }
     public String getPassword() { return this.password; }
     public String getImage() { return this.image; }
+    public Integer getSalary() {return this.salary;}
 
 
 
@@ -65,9 +66,8 @@ public class User {
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
     public Set<Cost> getCosts() {return this.costs;}
+    public void setSalary(Integer salary) { this.salary = salary; }
 
     public void setImage(String image) { this.image = image; }
     public void addCost(Cost cost) {this.costs.add(cost);}
-
-    
 }
