@@ -16,14 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
-public class SignUpTest {
-
-    //String filename = "/Users/thomasbull/Downloads/Nevermore.png";
-    // Removed until image is added properly to project files.
-    File file = new File(filename);
-    public String path = file.getAbsolutePath();
-
-    
+public class LoginTest {
 
     WebDriver driver;
     Faker faker;
@@ -42,13 +35,11 @@ public class SignUpTest {
 
     @Test
     public void successfulSignUpRedirectsToSignIn() {
-        driver.get("http://localhost:8080/users/new");
-        driver.findElement(By.id("username")).sendKeys(faker.name().firstName());
-        driver.findElement(By.id("password")).sendKeys("password");
-        driver.findElement(By.id("salary")).sendKeys("1234");
-        driver.findElement(By.id("file-upload-input")).sendKeys(path);
+        driver.get("http://localhost:8080/login");
+        driver.findElement(By.id("username")).sendKeys("danny");
+        driver.findElement(By.id("password")).sendKeys("123456");
         driver.findElement(By.id("submit")).click();
         String title = driver.getTitle();
-        Assert.assertEquals("Please sign in", title);
+        Assert.assertEquals("Dashboard", title);
     }
 }
