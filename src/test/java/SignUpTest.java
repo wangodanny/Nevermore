@@ -18,7 +18,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest(classes = Application.class)
 public class SignUpTest {
 
-    String filename = "/Users/thomasbull/Downloads/Nevermore.png";
+    //String filename = "/Users/thomasbull/Downloads/Nevermore.png";
+    // Removed until image is added properly to project files.
     File file = new File(filename);
     public String path = file.getAbsolutePath();
 
