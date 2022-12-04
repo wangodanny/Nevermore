@@ -4,8 +4,8 @@
     <head>
       <meta charset="UTF-8" />
       <title>Signup</title>
-      <link href="/signup.css" rel="stylesheet" type="text/css" />
-      <link href="/navbar.css" rel="stylesheet" />
+      <link href="/css/signup.css" rel="stylesheet" type="text/css" />
+      <link href="/css/navbar.css" rel="stylesheet" />
       <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -14,11 +14,12 @@
     <body>
       
       <div class="topnav">
-        <a href="/dashboard">Home</a>
-        <a href="/costs/new">Subscriptions</a>
-        <a class="active" href="/users/new">Sign Up</a>
-        <a href="/login">Sign In </a>
+        <img th:src='@{/img/nevermore.png}'>
+          <a href="/dashboard"><i class="fa-solid fa-house"></i>    Home</a>
+          <a class="active" href="/users/new">Sign Up</a>
+          <a href="/login">Sign In </a>
       </div>
+      <h2 class="form-signup-heading">Sign up</h2>
       <div class="container">
         <form
           class="form-signup"
@@ -27,32 +28,11 @@
           th:object="${user}"
           method="post"
         >
-          <h2 class="form-signup-heading">Sign up</h2>
-          <p>
-            <label for="username" class="sr-only">Username</label>
-            <input
-              type="text"
-              th:field="*{username}"
-              class="form-control"
-              placeholder="Username"
-              required
-              autofocus
-            />
-          </p>
-          <p>
-            <label for="username" class="sr-only">Password</label>
-            <input
-              type="password"
-              th:field="*{password}"
-              class="form-control"
-              placeholder="Password"
-              required
-              autofocus
-            />
-          </p>
-          <p>
+
+          
+          <div class="alignment-left">
             <div>
-              <label>Photo: </label>
+              <label>Profile Photo: </label>
               <input type="hidden" name="image" id="base64-data-input" />
               <div id="file-uploader-container">
                   <script>
@@ -97,32 +77,62 @@
                           }
                       });
                   </script>
+                  <label for="file-upload-input" class="custom-file-upload">
+                    <i class="fa fa-cloud-upload"></i> Custom Upload
+                </label>
                   <input type="file" id="file-upload-input" accept="image/*">
               </div>
           </div>
-            <label for="salary" class="sr-only">Salary</label>
-            <input
-              type="text"
-              th:field="*{salary}"
-              class="form-control"
-              placeholder="Enter your net salary"
-              required
-              autofocus
-            />
-          </p>
-          <p>
-            <input
-              class="btn btn-lg btn-primary btn-block"
-              type="submit"
-              value="Submit"
-              id="submit"
-            />
-            <input
-              class="btn btn-lg btn-primary btn-block btn-color-secondary"
-              type="reset"
-              value="Reset"
-            />
-          </p>
+            <p>
+              <label for="username" class="sr-only">Username</label>
+              <input
+                type="text"
+                th:field="*{username}"
+                class="form-control"
+                placeholder="Username"
+                required
+                autofocus
+              />
+            </p>
+            <p>
+              <label for="username" class="sr-only">Password</label>
+              <input
+                type="password"
+                th:field="*{password}"
+                class="form-control"
+                placeholder="Password"
+                required
+                autofocus
+              />
+            </p>
+            <p>
+              <label for="salary" class="sr-only">Salary</label>
+              <input
+                type="text"
+                th:field="*{salary}"
+                class="form-control"
+                placeholder="Enter your net salary"
+                required
+                autofocus
+              />
+            </p>
+            <p>
+              <input
+                class="btn btn-lg btn-primary btn-block"
+                type="submit"
+                value="Submit"
+                id="submit"
+              />
+              <input
+                class="btn btn-lg btn-primary btn-block btn-color-secondary"
+                type="reset"
+                value="Reset"
+              />
+            </p>
+          </div>
+
+
+          
         </form>
         <h2 class="form-signup-heading">Already have an account:</h2>
         <button class="btn btn-lg btn-primary btn-width btn-color-secondary" onclick="window.location.href='/login';">Sign In</button>

@@ -1,0 +1,172 @@
+
+  body {
+    padding-bottom: 40px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(55,9,121,1) 57%, rgba(134,0,255,1) 100%);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    box-sizing: inherit;
+    line-height: 1.5;
+    color: #212529;
+    display: block;
+  }
+  
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin-heading{
+    text-align: center;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .form-signin .form-signin-heading,
+  .form-signin .checkbox {
+    margin-bottom: 10px;
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #212529;
+    background-image: none;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    transition: all .20s ease-in-out;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  html {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+}
+.btn {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.8rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+  transition: all .15s ease-in-out;
+
+}
+.btn-primary {
+  color: #fff;
+  background: rgba(255, 177, 43, 0.91);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 177, 43, 1);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background: rgb(255, 188, 73);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 177, 43, 1);
+  font-weight: bold;
+}
+
+.form-signup-heading{
+  padding-top: 50px;
+  color:white;
+  text-align: center;
+}
+
+.btn-width{
+  width: 30%;
+  display: block;
+  display: center;
+  margin: 0 auto;
+}
+
+.btn-to-signup{
+  background: rgba(220, 221, 225, 0.769);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.8px);
+  -webkit-backdrop-filter: blur(13.8px);
+  border: 1px solid rgba(220, 221, 225, 0.83);
+  color: #353b48;
+  width: 20%;
+}
+
+.btn-to-signup:hover{
+  background: rgba(220, 221, 225, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 221, 225, 1);
+  color: #353b48;
+  font-weight: bold;
+}

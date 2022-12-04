@@ -1,0 +1,302 @@
+.posts-main {
+  border-collapse: collapse;
+}
+
+.post-main {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+}
+
+body {
+    padding-bottom: 40px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(55,9,121,1) 57%, rgba(134,0,255,1) 100%);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    box-sizing: inherit;
+    line-height: 1.5;
+    color: #212529;
+    display: block;
+  }
+
+.container {
+  max-width: 720px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
+  box-sizing: inherit;
+}
+
+form {
+    display: block;
+}
+
+.form-signup {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    box-sizing: inherit;
+}
+
+.form-signup-heading {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    display: block;
+    color: #fff;
+    text-align: center;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    box-sizing: inherit;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    border: 0;
+}
+
+label {
+    color: #fff;
+    display: inline-block;
+    touch-action: manipulation;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.form-control:hover {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #212529;
+    background-image: none;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    transition: all .20s ease-in-out;
+}
+
+.form-control:focus {
+    z-index: 2;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 0.8rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #212529;
+    background-image: none;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+    transition: all .20s ease-in-out;
+  }
+
+
+.file-uploader-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input {
+    overflow: visible;
+    font-family: inherit;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    font-size: 18px;
+    border-radius: 12px;
+    overflow: visible;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.custom-file-upload:hover {
+    border-radius: 12px;
+    overflow: visible;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+    transition: all .20s ease-in-out;
+}
+
+.preview-photo {
+ padding-top: 20px;
+ padding-bottom: 20px;
+ display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-group-lg.btn, .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    margin-bottom: 10px;
+    border-radius: 16px;
+
+}
+
+.btn-primary {
+    color: #fff;
+    background: rgba(255, 177, 43, 0.91);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 177, 43, 1);
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background: rgb(255, 188, 73);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 177, 43, 1);
+    font-weight: bold;
+  }
+
+.btn {
+    display: inline-block;
+    font-family: inherit;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    transition: all .15s ease-in-out;
+
+}
+.btn-width{
+    width: 30%;
+    display: block;
+    display: center;
+    margin: 0 auto;
+    
+}
+.btn-color-secondary{
+    background: rgba(220, 221, 225, 0.769);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.8px);
+    -webkit-backdrop-filter: blur(13.8px);
+    border: 1px solid rgba(220, 221, 225, 0.83);
+    color: #353b48;
+}
+
+.btn-color-secondary:hover{
+    background: rgba(220, 221, 225, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(220, 221, 225, 1);
+    color: #000;
+    font-weight: bold;
+}
+

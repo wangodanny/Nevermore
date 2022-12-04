@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Please sign in</title>
+    <title>Sign in</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="/signin.css" rel="stylesheet"/>
-    <link href="/navbar.css" rel="stylesheet"/>
+    <link href="/css/signin.css" rel="stylesheet"/>
+    <link href="/css/navbar.css" rel="stylesheet"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="topnav">
-      <a href="/dashboard">Home</a>
-      <a href="/costs/new">Subscriptions</a>
-      <a href="/users/new">Sign Up</a>
-      <a class="active" href="/login">Sign In </a>
+      <img th:src='@{/img/nevermore.png}'>
+        <a href="/dashboard"><i class="fa-solid fa-house"></i>  Home</a>
+        <a href="/users/new">Sign Up</a>
+        <a class="active" href="/login">Sign In </a>
     </div>
      <div class="container">
       <form class="form-signin" method="post" action="/logon">
