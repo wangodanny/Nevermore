@@ -13,6 +13,7 @@ import lombok.Data;
 
 import static java.lang.Boolean.TRUE;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -72,4 +73,25 @@ public class User {
 
     public void setImage(String image) { this.image = image; }
     public void addCost(Cost cost) {this.costs.add(cost);}
+
+    // When passed in the results of getCosts() calles the getPrice() method on each object returned. (map maybe)
+
+    public List<String> getPricesInList() {
+        List<String> prices = new ArrayList<String>();
+        for (Cost price:getCosts()) {
+            price.getPrice();
+            prices.add((price.getPrice()).toString());
+        }
+    return prices;
+    }
+
+    public List<String> getContentInList() {
+        List<String> contents = new ArrayList<String>();
+        for (Cost content:getCosts()) {
+            content.getcontent();
+            contents.add((content.getcontent()).toString());
+        }
+    return contents;
+    }
+
 }
