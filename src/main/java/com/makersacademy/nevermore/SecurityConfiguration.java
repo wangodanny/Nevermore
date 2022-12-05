@@ -35,6 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/costs/new").hasRole("USER")
                 .antMatchers("/users").permitAll()
                 .and().formLogin().loginPage("/logon").permitAll()
+                .failureUrl("/logon-error")
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logon").permitAll();
     }

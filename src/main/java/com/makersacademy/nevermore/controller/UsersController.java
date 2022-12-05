@@ -38,6 +38,11 @@ public class UsersController {
         return "/logon";
     }
 
+    @GetMapping("/logon-error")
+    public String signin_e(Model model) {
+        return "/logon_e";
+    }
+
     @GetMapping("/errorUser")
     public String errorUsername(Model model) {
         return "/errorUser";
@@ -64,10 +69,6 @@ public class UsersController {
 
         return new RedirectView("/login");
     }
-
-    
-        
-    
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
