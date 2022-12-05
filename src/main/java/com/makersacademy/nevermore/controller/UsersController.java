@@ -33,7 +33,7 @@ public class UsersController {
         return "users/new";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/logon")
     public String signin(Model model) {
         return "/logon";
     }
