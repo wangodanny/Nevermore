@@ -15,6 +15,10 @@
     <script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
   </head>
   <body>
     
@@ -39,6 +43,39 @@
         <div sec:authorize="isAuthenticated()">
             <h1>Hello <span class="name" sec:authentication="name"></span></h1>
           </div>
+            <h1><span th:text="${content}"></span></h1>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+          
+                function drawChart() {
+          
+                  var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Work',     11],
+                    ['Eat',      2],
+                    ['Commute',  2],
+                    ['Watch TV', 2],
+                    ['Sleep',    7]
+                  ]);
+          
+                  var options = {
+                    backgroundColor: "transparent",
+                    fontName: "Poppins",
+                    height: 500,
+                    legend: {position: 'none', textStyle: {color: 'white', fontSize: 16}},
+                    pieSliceBorderColor: "transparent",
+                  };
+          
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          
+                  chart.draw(data, options);
+                }
+              </script>
+            <body>
+              <div id="piechart"></div>
+            </body>
       </div>
       <div class="grid-item span-4 grid-item-2">
         <h1>Current Subscriptions</h1>
@@ -62,11 +99,11 @@
                 </table>
             </div>
         </div>
-
+        <div id="container" style="height: 400px"></div>
 
       </div>
       <div class="grid-item span-2 grid-item-3">Lookback</div>
-      <div class="grid-item span-2 grid-item-4">Suggestions</div>
+      <div class="grid-item span-2 grid-item-4">News</div>
       <div class="grid-item span-2 grid-item-5">Quick Actions</div>
   </div>
 

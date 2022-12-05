@@ -68,7 +68,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-gap: 1px;
-    grid-auto-rows: minmax(180px, auto);
+    grid-auto-rows: minmax(180px, 30px);
     grid-auto-flow: dense;
     padding: 1px;
     padding: 2rem;
@@ -144,6 +144,20 @@ border: 1px solid rgba(255, 255, 255, 0.05);
     grid-row: span 3;
 }
 
-.table-left { width: 50%; float: left; }
-.table-right {width: 50%; float: right; }
-.table-container { overflow: hidden; }
+.table-left { 
+    width: 50%; float: left; 
+}
+.table-right {
+    width: 50%; float: right; 
+}
+.table-container { 
+    overflow: hidden; 
+}
+
+#piechart {
+    width: 500px; 
+    height: 0px;
+    float: right; 
+    padding: 0%;
+    color: white;
+}
