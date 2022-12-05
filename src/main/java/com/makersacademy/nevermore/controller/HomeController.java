@@ -23,7 +23,7 @@ public class HomeController {
 	@RequestMapping(value = "/")
 	public String index(Model model, Principal principal) {
 	
-		return "/logon";
+		return "/dashboard";
 	}
 
 	@RequestMapping("/dashboard")

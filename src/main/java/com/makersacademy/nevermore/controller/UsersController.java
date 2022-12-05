@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -82,6 +83,16 @@ public class UsersController {
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        Optional<User> currentUser = userRepository.findByUsername(name); 
+        User userObj = currentUser.get(); 
+
+        
+        model.addAttribute("content", userObj.getContentInList());
+        model.addAttribute("subs", userObj.getPricesInList());
+
+
         return "/dashboard";
     }
     
