@@ -86,6 +86,12 @@
                     <tr th:each="content: ${content}">
                         <td th:text="${content}"></td>
                     </tr>
+                    <tr>
+                      <td>Total Cost: </td>
+                    </tr>
+                    <tr>
+                      <td>Remaining: </td>
+                    </tr>
                 </table>
             </div>
 
@@ -93,8 +99,19 @@
                 <table class="table table-striped table-costs">
                     <tbody>
                         <tr th:each="subs: ${subs}">
+                            <td>£</td>
                             <td th:text="${subs}"></td>
                         </tr>
+                        <tr>
+                          <td>£</td>
+                          <td th:text="${sum}"></td>
+                        </tr>
+                        <tr>
+                          <td>£</td>
+                          <td th:text="${remaining}"></td>
+                        </tr>
+
+                
                     </tbody>
                 </table>
             </div>
