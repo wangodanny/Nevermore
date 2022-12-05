@@ -5,6 +5,7 @@ import com.makersacademy.nevermore.model.User;
 import com.makersacademy.nevermore.repository.AuthoritiesRepository;
 import com.makersacademy.nevermore.repository.UserRepository;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -28,8 +30,16 @@ public class UsersController {
     AuthoritiesRepository authoritiesRepository;
 
     @GetMapping("/users/new")
-    public String signup(Model model) {
+    public String signup(@RequestParam(name= "error", required = false) Optional<String> errorOptional, Model model) {
+       String errorMsg = "";
+       if(errorOptional.isPresent()) {
+        String errorParam = errorOptional.get().toString();
+        if(errorParam.equals("username_taken")) {
+            errorMsg = "That username has been taken, please choose another one!";
+        }
+       }
         model.addAttribute("user", new User());
+        model.addAttribute("errorMsg", errorMsg);
         return "users/new";
     }
 
@@ -45,11 +55,11 @@ public class UsersController {
 
 
     @PostMapping("/users")
-    public RedirectView signup(@ModelAttribute User user) {
+    public RedirectView signup(@ModelAttribute User user, Principal principal) {
         Optional<User> username = userRepository.findByUsername(user.getUsername());
 
         if (username.isPresent() == true) {
-            return new RedirectView("/errorUser");
+            return new RedirectView("/users/new?error=username_taken");
         }
         else {
             userRepository.save(user);
@@ -62,7 +72,7 @@ public class UsersController {
             
         }
 
-        return new RedirectView("/login");
+        return new RedirectView("/logon");
     }
 
     
