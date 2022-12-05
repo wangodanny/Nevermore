@@ -92,8 +92,22 @@ public class UsersController {
         model.addAttribute("content", userObj.getContentInList());
         model.addAttribute("subs", userObj.getPricesInList());
 
+        List<String> prices = userObj.getPricesInList();
+
+        Float Sum = Float.valueOf(0);
+        
+        for(int i=0; i<prices.size(); i++){
+            Sum += Float.valueOf(prices.get(i));
+        }
+
+        Float remaining = userObj.getSalary() - Sum;
+
+        model.addAttribute("sum", Sum);
+        model.addAttribute("remaining", remaining);
+
 
         return "/dashboard";
     }
+
     
 }
