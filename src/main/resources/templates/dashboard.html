@@ -40,42 +40,49 @@
 
     <div class="grid-layout">
       <div class="grid-item span-5 grid-item-1">
-        <div sec:authorize="isAuthenticated()">
-            <h1>Hello <span class="name" sec:authentication="name"></span></h1>
+        <div class="usernameHeader" sec:authorize="isAuthenticated()">
+            <h1 >Hello <span class="name" sec:authentication="name"></span></h1>
           </div>
-            <h1><span th:text="${content}"></span></h1>
-              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-              <script type="text/javascript">
-                google.charts.load('current', {'packages':['corechart']});
-                google.charts.setOnLoadCallback(drawChart);
-          
-                function drawChart() {
-          
-                  var data = google.visualization.arrayToDataTable([
-                    ['Task', 'Hours per Day'],
-                    ['Work',     11],
-                    ['Eat',      2],
-                    ['Commute',  2],
-                    ['Watch TV', 2],
-                    ['Sleep',    7]
-                  ]);
-          
-                  var options = {
-                    backgroundColor: "transparent",
-                    fontName: "Poppins",
-                    height: 500,
-                    legend: {position: 'none', textStyle: {color: 'white', fontSize: 16}},
-                    pieSliceBorderColor: "transparent",
-                  };
-          
-                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-          
-                  chart.draw(data, options);
+          <h1>Total spent: £<span th:text="${sum}"></span></h1>
+          <h1>Salary remaining: £<span th:text="${remaining}"></span></h1>
+            <script
+                src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script type="text/javascript"
+                src="https://www.gstatic.com/charts/loader.js"></script>
+            </head>
+            <div class="chartContainer">
+              <script th:inline="javascript">
+                var real_data = /*[[${pieDataList}]]*/'noValue';
+                $(document).ready(function() {
+                    google.charts.load('current', {
+                        packages : [ 'corechart']
+                    });
+                    google.charts.setOnLoadCallback(drawPieChart);
+                });
+                
+                function drawPieChart() {
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', 'Name');
+                    data.addColumn('number', 'price');
+                    Object.keys(real_data).forEach(function(key) {
+                        data.addRow([ key, real_data[key] ]);
+                    });
+                    var options = {
+                        backgroundColor: "transparent",
+                        fontName: "Poppins",
+                        height: 500,
+                        legend: {position: 'none', textStyle: {color: 'white', fontSize: 16}},
+                        pieSliceBorderColor: "transparent",
+                    };
+                    var chart = new google.visualization.PieChart(document
+                            .getElementById('piechart'));
+                    chart.draw(data, options);
                 }
-              </script>
-            <body>
-              <div id="piechart"></div>
-            </body>
+            </script>
+        <body>
+          <div id="piechart"></div>
+        </body>
+            </div>
       </div>
       <div class="grid-item span-4 grid-item-2">
         <h1>Current Subscriptions</h1>
@@ -85,12 +92,6 @@
                 <table class="table table-bordered table-content" >
                     <tr th:each="content: ${content}">
                         <td th:text="${content}"></td>
-                    </tr>
-                    <tr>
-                      <td>Total Cost: </td>
-                    </tr>
-                    <tr>
-                      <td>Remaining: </td>
                     </tr>
                 </table>
             </div>
@@ -102,16 +103,6 @@
                             <td>£</td>
                             <td th:text="${subs}"></td>
                         </tr>
-                        <tr>
-                          <td>£</td>
-                          <td th:text="${sum}"></td>
-                        </tr>
-                        <tr>
-                          <td>£</td>
-                          <td th:text="${remaining}"></td>
-                        </tr>
-
-                
                     </tbody>
                 </table>
             </div>
