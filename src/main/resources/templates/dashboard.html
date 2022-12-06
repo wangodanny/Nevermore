@@ -45,6 +45,7 @@
           </div>
           <h1>Total spent: £<span th:text="${sum}"></span></h1>
           <h1>Salary remaining: £<span th:text="${remaining}"></span></h1>
+          <h1>Date Test<span th:each="dateOrder : ${dateOrder}" th:text="${dateOrder}"></span></h1>
             <script
                 src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script type="text/javascript"
@@ -110,7 +111,37 @@
         <div id="container" style="height: 400px"></div>
 
       </div>
-      <div class="grid-item span-2 grid-item-3">Lookback</div>
+      <div class="grid-item span-2 grid-item-3">Lookback
+        <script th:inline="javascript">
+            var real_data = /*[[${chartData}]]*/'noValue';
+            $(document).ready(function() {
+                google.charts.load('current', {
+                    packages : [ 'corechart', 'bar' ]
+                });
+                google.charts.setOnLoadCallback(drawColumnChart);
+            });
+            function drawColumnChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Year');
+                data.addColumn('number', 'Views');
+                Object.keys(real_data).forEach(function(key) {
+                    data.addRow([ key, real_data[key] ]);
+                });
+                var options = {
+                    title : 'Blog stats',
+                    hAxis : {
+                        title : 'Years',
+                    },
+                    vAxis : {
+                        title : 'View Count'
+                    }
+                };
+                var chart = new google.visualization.ColumnChart(document
+                        .getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+      </div>
       <div class="grid-item span-2 grid-item-4">News</div>
       <div class="grid-item span-2 grid-item-5">Quick Actions</div>
   </div>

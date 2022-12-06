@@ -7,6 +7,7 @@ import com.makersacademy.nevermore.repository.UserRepository;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,6 +96,8 @@ public class UsersController {
         
         model.addAttribute("content", userObj.getContentInList());
         model.addAttribute("subs", userObj.getPricesInList());
+      
+        
 
         List<String> prices = userObj.getPricesInList();
         List<String> names = userObj.getContentInList();
@@ -117,6 +120,24 @@ public class UsersController {
         model.addAttribute("sum", Sum);
         model.addAttribute("remaining", remaining);
         modelMap.addAttribute("pieDataList", pieDataList);
+        modelMap.addAttribute("barDataList", barDataList);
+
+
+        List<String> prices = userObj.getPricesInList();
+        List<Integer> dates = userObj.getDateInList();
+
+        Map<Integer, Float> barDataList =  new HashMap<>();
+
+        Float Sum = Float.valueOf(0);
+
+        for(int i=0; i<prices.size(); i++) {
+            if (barDataList.containsKey(12)) {
+                Float temp = (barDataList.get(12));
+                 temp += Float.valueOf(prices.get(i));
+                 barDataList.put(dates, temp);
+            }
+        }
+        
 
 
         return "/dashboard";

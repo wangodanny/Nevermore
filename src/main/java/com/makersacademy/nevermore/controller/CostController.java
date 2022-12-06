@@ -8,6 +8,7 @@ import com.makersacademy.nevermore.repository.CostRepository;
 import com.makersacademy.nevermore.repository.UserRepository;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Date;
 import java.util.Optional;
@@ -50,12 +51,19 @@ return "costs/new";
         Optional<User> currentUser = userRepository.findByUsername(name); 
         User userObj = currentUser.get(); 
 
+   
+
+
         userObj.addCost(cost);
         costRepository.save(cost);
         userRepository.save(userObj);
 
         Date timeStamp = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(timeStamp);
+        int month = cal.get(Calendar.MONTH) + 1;
         cost.setDate(timeStamp);
+        cost.setMonth(month);
         costRepository.save(cost);
 
         System.out.println(userObj.getCosts());
