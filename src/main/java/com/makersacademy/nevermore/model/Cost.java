@@ -26,6 +26,7 @@ public class Cost {
     private Double price;
     private String category;
     public Date date;
+    public int month;
 
     public Cost() {
         
@@ -38,11 +39,12 @@ public class Cost {
         
     }
 
-    public Cost(String content, Double price, String category, Date date) {
+    public Cost(String content, Double price, String category, Date date, Integer month) {
         this.content = content;
         this.price = price;
         this.category = category;
         this.date = date;
+        this.month = month;
     }
 
     
@@ -52,10 +54,12 @@ public class Cost {
     public String getCategory() { return this.category;}
     public Long getId() { return this.id; }
     public Date getDate() {return this.date;}
+    public Integer getMonth() {return this.month;}
 
     //Setters
     public void setContent(String content) { this.content = content; }
     public void setPrice(Double price) { this.price = price;}
     public void setCategory(String category) { this.category = category;}
     public void setDate(Date date) { this.date = date;}
+    public void setMonth(Integer month) { this.month = month;}
 }

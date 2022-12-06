@@ -13,8 +13,10 @@ import lombok.Data;
 
 import static java.lang.Boolean.TRUE;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 @Data
@@ -94,5 +96,15 @@ public class User {
     return contents;
     }
 
+    public List<Integer> getDateInList() {
+        List<Integer> dates = new ArrayList<Integer>();
+        for (Cost date:getCosts()) {
+            dates.add((date.getMonth()));
+            
+        }
+
+
+    return dates;
+    }
 
 }
