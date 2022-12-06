@@ -96,8 +96,8 @@ public class User {
     return contents;
     }
 
-    public List<Integer> getDateInList() {
-        List<Integer> dates = new ArrayList<Integer>();
+    public List<String> getDateInList() {
+        List<String> dates = new ArrayList<String>();
         for (Cost date:getCosts()) {
             dates.add((date.getMonth()));
             

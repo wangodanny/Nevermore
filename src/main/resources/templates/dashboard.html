@@ -23,7 +23,7 @@
   <body>
     
     <div class="topnav">
-    <img th:src='@{/img/nevermore.png}'>
+    <img th:src='@{/img/nevermore.png}' class="navbar-image">
       <a class="active" href="/dashboard"><i class="fa-solid fa-house"></i>    Home</a>
       <a href="/costs/new" id="newCost"><i class="fa-solid fa-money-check"></i>    Subscriptions</a>
       <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
@@ -43,21 +43,23 @@
         <div class="usernameHeader" sec:authorize="isAuthenticated()">
             <h1 >Hello <span class="name" sec:authentication="name"></span></h1>
           </div>
-          <h1>Total spent: £<span th:text="${sum}"></span></h1>
-          <h1>Salary remaining: £<span th:text="${remaining}"></span></h1>
-          <h1>Date Test<span th:each="dateOrder : ${dateOrder}" th:text="${dateOrder}"></span></h1>
+          <h2>Total spent: £<span th:text="${sum}"></span></h2>
+          <h2>Salary remaining: £<span th:text="${remaining}"></span></h2>
             <script
                 src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script type="text/javascript"
                 src="https://www.gstatic.com/charts/loader.js"></script>
             </head>
             <div class="chartContainer">
+                
               <script th:inline="javascript">
                 var real_data = /*[[${pieDataList}]]*/'noValue';
+                
                 $(document).ready(function() {
                     google.charts.load('current', {
                         packages : [ 'corechart']
                     });
+                   
                     google.charts.setOnLoadCallback(drawPieChart);
                 });
                 
@@ -84,6 +86,8 @@
           <div id="piechart"></div>
         </body>
             </div>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" onclick="window.location.href='/costs/new';">Add Subscription</button>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/';">View All</button>
       </div>
       <div class="grid-item span-4 grid-item-2">
         <h1>Current Subscriptions</h1>
@@ -112,29 +116,38 @@
 
       </div>
       <div class="grid-item span-2 grid-item-3">Lookback
+        <div id="chart_div"></div>
         <script th:inline="javascript">
-            var real_data = /*[[${chartData}]]*/'noValue';
+            var real_data2 = /*[[${barDataList}]]*/'noValue';
+
             $(document).ready(function() {
-                google.charts.load('current', {
-                    packages : [ 'corechart', 'bar' ]
+                    google.charts.load('current', {
+                        packages : [ 'corechart', 'bar']
+                    });
+                    google.charts.setOnLoadCallback(drawColumnChart);
                 });
-                google.charts.setOnLoadCallback(drawColumnChart);
-            });
-            function drawColumnChart() {
+                function drawColumnChart() {
                 var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Year');
-                data.addColumn('number', 'Views');
-                Object.keys(real_data).forEach(function(key) {
-                    data.addRow([ key, real_data[key] ]);
+                data.addColumn('string', 'Month');
+                data.addColumn('number', 'Total Spent £');
+                Object.keys(real_data2).forEach(function(key) {
+                    data.addRow([ key, real_data2[key] ]);
                 });
                 var options = {
-                    title : 'Blog stats',
                     hAxis : {
-                        title : 'Years',
+                        title : 'Month',
+                        titleTextStyle: {color: 'white'},
+                        textStyle: {color: 'white'},
                     },
                     vAxis : {
-                        title : 'View Count'
-                    }
+                        title : 'Total Spent (£)',
+                        titleTextStyle: {color: 'white'},
+                        textStyle: {color: 'white'},
+                    },
+                    backgroundColor: 'transparent',
+                    fontName: "Poppins",
+                    legend: {position: 'none', textStyle: {color: 'red', fontSize: 16}},
+                    
                 };
                 var chart = new google.visualization.ColumnChart(document
                         .getElementById('chart_div'));

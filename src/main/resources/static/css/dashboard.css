@@ -89,7 +89,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.44);
     padding: 2rem;
     margin: 1rem;
-    filter: drop-shadow(5px 5px 16px #000);
 }
 
 .grid-item-3 {
@@ -170,4 +169,8 @@ border: 1px solid rgba(255, 255, 255, 0.05);
 
 .usernameHeader {
     width: 500px;
+}
+
+#chart-div {
+    color: white;
 }
