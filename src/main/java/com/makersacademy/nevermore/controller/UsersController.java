@@ -102,42 +102,46 @@ public class UsersController {
         List<String> prices = userObj.getPricesInList();
         List<String> names = userObj.getContentInList();
 
-        Map<String, Float> pieDataList =  new HashMap<>();
+        Map<String, Double> pieDataList =  new HashMap<>();
 
-        Float Sum = Float.valueOf(0);
+        Double Sum = Double.valueOf(0);
         
         for(int i=0; i<prices.size(); i++){
             //setting the sum
-            Float price = Float.valueOf(prices.get(i));
+            Double price = Double.valueOf(prices.get(i));
             Sum += price;
+            Sum =  Math.floor(Sum * 100) / 100;
             //setting the keyValue list
             String cont = String.valueOf(names.get(i));
              pieDataList.put(cont, price);
         }
 
-        Float remaining = userObj.getSalary() - Sum;
+        Double remaining = userObj.getSalary() - Sum;
 
         model.addAttribute("sum", Sum);
         model.addAttribute("remaining", remaining);
         modelMap.addAttribute("pieDataList", pieDataList);
-        modelMap.addAttribute("barDataList", barDataList);
+       
 
 
-        List<String> prices = userObj.getPricesInList();
-        List<Integer> dates = userObj.getDateInList();
+        List<String> dates = userObj.getDateInList();
 
-        Map<Integer, Float> barDataList =  new HashMap<>();
+        Map<String, Float> barDataList =  new HashMap<>();
 
-        Float Sum = Float.valueOf(0);
-
-        for(int i=0; i<prices.size(); i++) {
-            if (barDataList.containsKey(12)) {
-                Float temp = (barDataList.get(12));
-                 temp += Float.valueOf(prices.get(i));
-                 barDataList.put(dates, temp);
+        for(int i=0; i<prices.size(); i++){
+            //checks if the current month is stored in the hashmap
+            if(barDataList.containsKey(dates.get(i))){
+                Float temp = barDataList.get(dates.get(i));
+                temp += Float.valueOf(prices.get(i));
+                barDataList.put(dates.get(i), temp);
+            }else{
+                Float price = Float.valueOf(prices.get(i));
+                barDataList.put(dates.get(i), price);
             }
+
         }
         
+        modelMap.addAttribute("barDataList", barDataList);
 
 
         return "/dashboard";

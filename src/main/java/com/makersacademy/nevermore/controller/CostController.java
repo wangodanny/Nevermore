@@ -7,9 +7,12 @@ import com.makersacademy.nevermore.repository.AuthoritiesRepository;
 import com.makersacademy.nevermore.repository.CostRepository;
 import com.makersacademy.nevermore.repository.UserRepository;
 
+import java.time.Month;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.Date;
 import java.util.Optional;
 
@@ -61,12 +64,13 @@ return "costs/new";
         Date timeStamp = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(timeStamp);
-        int month = cal.get(Calendar.MONTH) + 1;
+        int monthInt = cal.get(Calendar.MONTH) + 1;
+        String month = Month.of( monthInt ).getDisplayName( TextStyle.FULL , Locale.US );
         cost.setDate(timeStamp);
         cost.setMonth(month);
         costRepository.save(cost);
 
-        System.out.println(userObj.getCosts());
+        System.out.println(month);
 
         return new RedirectView("/dashboard");
     }
