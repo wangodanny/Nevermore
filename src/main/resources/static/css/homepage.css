@@ -1,0 +1,48 @@
+.links {
+    text-align: center;
+    width: 500px;
+    margin: auto;
+    margin-top: 60px;
+   font-size: larger;
+  }
+
+
+
+.logo-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: auto;
+    position: relative;
+    top: 20px;
+   
+}
+
+.home-btn {
+    background-color: rgb(221, 239, 248);
+    border-radius: 10px;
+    color: rgb(36, 91, 161);
+    display: block;
+    margin: 10px;
+  }
+
+  .btn-style {
+    color: #d29327;
+    /* From https://css.glass */
+      background: rgba(247, 170, 38, 0);
+      border-radius: 10px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(247, 170, 38, 1);
+  }
+
+  .title{
+    color: #d29327;
+    text-align: center;
+    margin: auto;
+    margin-top: 70px;
+   font-size: xx-large;
+   
+  }
