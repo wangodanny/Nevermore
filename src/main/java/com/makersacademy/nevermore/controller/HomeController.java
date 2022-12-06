@@ -22,8 +22,11 @@ public class HomeController {
 	
 	@RequestMapping(value = "/")
 	public String index(Model model, Principal principal) {
+        if (principal != null) {
+            return "redirect:/dashboard";
+          }
 	
-		return "/dashboard";
+		return "/home/homepage";
 	}
 
 	@RequestMapping("/dashboard")
