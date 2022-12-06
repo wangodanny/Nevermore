@@ -87,12 +87,13 @@
       <div class="grid-item span-4 grid-item-2">
         <h1>Current Subscriptions</h1>
         <div class="table-container">
-
+          
             <div class="table-left">
                 <table class="table table-bordered table-content" >
                     <tr th:each="content: ${content}">
                         <td th:text="${content}"></td>
                     </tr>
+                    
                 </table>
             </div>
 
@@ -106,7 +107,9 @@
                     </tbody>
                 </table>
             </div>
+            
         </div>
+        <a href="/delete">Delete Items</a>
         <div id="container" style="height: 400px"></div>
 
       </div>

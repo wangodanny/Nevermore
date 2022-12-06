@@ -63,18 +63,32 @@ return "costs/new";
         return new RedirectView("/dashboard");
     }
 
-    @GetMapping("/costs/{id}")
-    public String show(@PathVariable Long id, Model model){
-        
-        Iterable<Cost> costs = costRepository.findAll();
-
-        ArrayList<Cost> relatedCosts = new ArrayList<>();
-
-        
-        model.addAttribute("costs", relatedCosts);
-        model.addAttribute("cost", new Cost());
-        // model.addAttribute("post", new Post());
-        return "posts/show";
+    @PostMapping("/delete")
+    public RedirectView delete(@ModelAttribute Cost cost, String content) {
+        //content not being passed in
+        System.out.println("CONTENT HERE:::::");
+        System.out.println(content);
+        //content is null thus this doesnt work
+        Optional<Cost> del = costRepository.findByContent(content);
+        Cost costObj = del.get(); 
+        costRepository.delete(costObj);
+    
+        return new RedirectView("/dashboard");
     }
+
+    @GetMapping("/delete")
+    public String showDelete(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        Optional<User> currentUser = userRepository.findByUsername(name); 
+        User userObj = currentUser.get(); 
+
+        
+        model.addAttribute("content", userObj.getContentInList());
+
+        return "/temp";
+    }
+
+
 }
 

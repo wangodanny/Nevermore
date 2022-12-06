@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <link href="/navbar.css" rel="stylesheet" />
+    <div class="topnav">
+        <a href="/dashboard"><i class="fa-solid fa-house"></i>    Home</a>
+        <a href="/users/new">Sign Up</a>
+        <a href="/login">Sign In </a>
+    </div>
+    <div class="container">
+      <link href="/posts.css" rel="stylesheet" type="text/css" />
+      <h2 class="posts-heading">Something went wrong!</h2>
+      <p>DELETE CONTENT PAGE</p>
+
+
+    <form th:action="@{/delete}" action="#" th:object="${cost}" method="post">
+      <select class="form-control" th:field="${content}"  id="delete">
+        <option th:each="content : ${content}" th:value="${content}" th:text="${content}"></option>
+      </select>
+      <button  id="submit" value="submit" type="submit">Delete</button>
+    </form>
+
+      <a class="btn btn-lg btn-primary btn-block" href="/users/new">Go Home</a>
+    </div>
+  </body>
+</html>

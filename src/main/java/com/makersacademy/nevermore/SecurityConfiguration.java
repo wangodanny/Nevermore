@@ -34,6 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/costs").hasRole("USER")
                 .antMatchers("/costs/new").hasRole("USER")
                 .antMatchers("/users").permitAll()
+                .antMatchers("/delete").permitAll()
                 .and().formLogin().loginPage("/logon").permitAll()
                 .failureUrl("/logon-error")
                 .and()

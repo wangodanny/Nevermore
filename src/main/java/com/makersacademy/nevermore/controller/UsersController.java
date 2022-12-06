@@ -1,8 +1,10 @@
 package com.makersacademy.nevermore.controller;
 
 import com.makersacademy.nevermore.model.Authority;
+import com.makersacademy.nevermore.model.Cost;
 import com.makersacademy.nevermore.model.User;
 import com.makersacademy.nevermore.repository.AuthoritiesRepository;
+import com.makersacademy.nevermore.repository.CostRepository;
 import com.makersacademy.nevermore.repository.UserRepository;
 
 import java.security.Principal;
@@ -31,6 +33,8 @@ public class UsersController {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    CostRepository costRepository;
     @Autowired
     AuthoritiesRepository authoritiesRepository;
 
@@ -84,6 +88,32 @@ public class UsersController {
 
         return new RedirectView("/logon");
     }
+
+
+
+    // @PostMapping("/delete")
+    // public RedirectView delete(@ModelAttribute Cost cost, String content) {
+    //     System.out.println("CONTENT HERE:::::" + content);
+    //     Optional<Cost> del = costRepository.findByContent(content);
+    //     Cost costObj = del.get(); 
+    //     costRepository.delete(costObj);
+    
+    //     return new RedirectView("/dashboard");
+    // }
+
+    // @GetMapping("/delete")
+    // public String showDelete(Model model) {
+    //     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    //     String name = auth.getName();
+    //     Optional<User> currentUser = userRepository.findByUsername(name); 
+    //     User userObj = currentUser.get(); 
+
+        
+    //     model.addAttribute("content", userObj.getContentInList());
+
+    //     return "/temp";
+    // }
+
 
     @GetMapping("/dashboard")
     public String dashboard(Model model, ModelMap modelMap) {
