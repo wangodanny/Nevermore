@@ -7,14 +7,18 @@ import com.makersacademy.nevermore.repository.UserRepository;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
+import org.hibernate.mapping.KeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -82,7 +86,7 @@ public class UsersController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboard(Model model) {
+    public String dashboard(Model model, ModelMap modelMap) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
         Optional<User> currentUser = userRepository.findByUsername(name); 
@@ -93,23 +97,29 @@ public class UsersController {
         model.addAttribute("subs", userObj.getPricesInList());
 
         List<String> prices = userObj.getPricesInList();
+        List<String> names = userObj.getContentInList();
+
+        Map<String, Float> pieDataList =  new HashMap<>();
 
         Float Sum = Float.valueOf(0);
         
         for(int i=0; i<prices.size(); i++){
-            Sum += Float.valueOf(prices.get(i));
+            //setting the sum
+            Float price = Float.valueOf(prices.get(i));
+            Sum += price;
+            //setting the keyValue list
+            String cont = String.valueOf(names.get(i));
+             pieDataList.put(cont, price);
         }
 
         Float remaining = userObj.getSalary() - Sum;
 
         model.addAttribute("sum", Sum);
         model.addAttribute("remaining", remaining);
-
-
+        modelMap.addAttribute("pieDataList", pieDataList);
 
 
         return "/dashboard";
     }
 
-    
 }
