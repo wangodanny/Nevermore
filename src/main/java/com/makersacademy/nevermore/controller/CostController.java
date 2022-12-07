@@ -91,17 +91,17 @@ return "costs/new";
         // model.addAttribute("post", new Post());
         return "posts/show";
     }
-    @DeleteMapping("/delete")
-    public RedirectView delete(@ModelAttribute("content") Cost cost, String content ) {
+    @DeleteMapping("/costs/{id}")
+    public RedirectView delete(@PathVariable("id") Long id) {
         //content not being passed in
-        System.out.println(cost);
-        System.out.println("CONTENT HERE:::::");
-        System.out.println(content);
+        // System.out.println(cost);
+        // System.out.println("CONTENT HERE:::::");
+        // System.out.println(content);
         //content is null thus this doesnt work
-        Optional<Cost> del = costRepository.findByContent(content);
+        Optional<Cost> del = costRepository.findById(id);
         Cost costObj = del.get(); 
         costRepository.delete(costObj);
-        System.out.println(cost);
+        System.out.println(costObj);
         return new RedirectView("/dashboard");
     }
 }
