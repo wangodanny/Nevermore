@@ -95,6 +95,7 @@ return "costs/new";
 
         model.addAttribute("content", userObj.getContentInList());
         model.addAttribute("subs", userObj.getPricesInList());
+        model.addAttribute("ID", userObj.getIDInList());
         // model.addAttribute("post", new Post());
         return "costs/all";
     }
@@ -109,7 +110,7 @@ return "costs/new";
         Cost costObj = del.get(); 
         costRepository.delete(costObj);
         System.out.println(costObj);
-        return new RedirectView("/dashboard");
+        return new RedirectView("/costs/all");
     }
 }
 
