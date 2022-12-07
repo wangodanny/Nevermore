@@ -75,18 +75,25 @@ return "costs/new";
         return new RedirectView("/dashboard");
     }
 
-    @GetMapping("/costs/{id}")
-    public String show(@PathVariable Long id, Model model){
+    @GetMapping("/costs/all")
+    public String show(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        Optional<User> currentUser = userRepository.findByUsername(name); 
+        User userObj = currentUser.get(); 
         
-        Iterable<Cost> costs = costRepository.findAll();
+        // Iterable<Cost> costs = costRepository.findAll();
 
-        ArrayList<Cost> relatedCosts = new ArrayList<>();
+        // ArrayList<Cost> relatedCosts = new ArrayList<>();
 
         
-        model.addAttribute("costs", relatedCosts);
-        model.addAttribute("cost", new Cost());
+        // model.addAttribute("costs", relatedCosts);
+        // model.addAttribute("cost", new Cost());
+
+        model.addAttribute("content", userObj.getContentInList());
+        model.addAttribute("subs", userObj.getPricesInList());
         // model.addAttribute("post", new Post());
-        return "posts/show";
+        return "costs/all";
     }
 }
 

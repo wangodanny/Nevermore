@@ -9,7 +9,6 @@
     <link href="/css/signin.css" rel="stylesheet"/>
     <link href="/css/navbar.css" rel="stylesheet"/>
     <link href="/css/dashboard.css" rel="stylesheet"/>
-    <link href="/css/graphs.css" rel="stylesheet"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
@@ -25,7 +24,7 @@
     <div class="topnav">
     <img th:src='@{/img/nevermore.png}' class="navbar-image">
       <a class="active" href="/dashboard"><i class="fa-solid fa-house"></i>    Home</a>
-      <a href="/costs/new" id="newCost"><i class="fa-solid fa-money-check"></i>    Subscriptions</a>
+      <a href="/costs/all" id="newCost"><i class="fa-solid fa-money-check"></i>    Subscriptions</a>
       <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
       <div class="username">
         <div sec:authorize="isAuthenticated()" >
@@ -87,7 +86,7 @@
         </body>
             </div>
         <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" onclick="window.location.href='/costs/new';">Add Subscription</button>
-        <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/';">View All</button>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/all';">View All</button>
       </div>
       <div class="grid-item span-4 grid-item-2">
         <h1>Current Subscriptions</h1>
