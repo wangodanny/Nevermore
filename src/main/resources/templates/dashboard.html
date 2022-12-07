@@ -161,12 +161,14 @@
     </div>
 
       <div class="grid-item span-2 grid-item-4">Quick Actions
+        <a href="/salary">link text</a>
 
-        <form id="twelve" th:action="@{/delete}(content=${cost.content})}" action="/" th:object="${cost}" th:method="delete" method="post">
-            <select class="form-control" th:field="${content}"  id="delete">
-              <option th:each="content : ${content}" th:value="${content}" th:text="${content}"></option>
-            </select>
-            <button  id="submit" value="submit" type="submit">Delete</button>
+        <form action="#" th:action="@{/salary}" th:object="${salary}" method="post">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" value="Mike"><br><br>
+            
+            
+            <input type="submit" value="Submit">
           </form>
 
       

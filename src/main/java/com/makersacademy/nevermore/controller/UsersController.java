@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
+import org.thymeleaf.cache.TTLCacheEntryValidity;
 
 @Controller
 public class UsersController {
@@ -146,6 +147,24 @@ public class UsersController {
 
         return "/dashboard";
     }
-    
+    @GetMapping("/salary")
+    public String salary(Model model, ModelMap modelMap){
+        
+     return "/salary";
+
+    }
+    @PostMapping("/salary")
+    public String sal(Model model, Integer salary){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        Optional<User> currentUser = userRepository.findByUsername(name); 
+        User userObj = currentUser.get();
+        salary = 12;
+        userObj.setSalary(salary);
+        System.out.println(userObj);
+        
+        
+    return "/dashboard";
+    }
 
 }
