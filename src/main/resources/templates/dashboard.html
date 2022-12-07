@@ -72,9 +72,10 @@
                     var options = {
                         backgroundColor: "transparent",
                         fontName: "Poppins",
-                        height: 500,
+                        height: 200,
                         legend: {position: 'none', textStyle: {color: 'white', fontSize: 16}},
                         pieSliceBorderColor: "transparent",
+                        chartArea:{left:0,top:0,width:'100%',height:'100%'}
                     };
                     var chart = new google.visualization.PieChart(document
                             .getElementById('piechart'));
@@ -154,8 +155,22 @@
             }
         </script>
       </div>
-      <div class="grid-item span-2 grid-item-4">News</div>
-      <div class="grid-item span-2 grid-item-5">Quick Actions</div>
+      <div class="span-2">
+       <a class="twitter-timeline span-2" data-width="700" data-height="330" data-dnt="true" data-theme="dark" href="https://twitter.com/ftmoney?ref_src=twsrc%5Etfw">Tweets by ftmoney</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    </div>
+
+      <div class="grid-item span-2 grid-item-4">Quick Actions
+
+        <form id="twelve" th:action="@{/delete}(content=${cost.content})}" action="/" th:object="${cost}" th:method="delete" method="post">
+            <select class="form-control" th:field="${content}"  id="delete">
+              <option th:each="content : ${content}" th:value="${content}" th:text="${content}"></option>
+            </select>
+            <button  id="submit" value="submit" type="submit">Delete</button>
+          </form>
+
+      
+      </div>
+      
   </div>
 
 
