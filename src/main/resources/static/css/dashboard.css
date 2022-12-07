@@ -154,18 +154,16 @@ border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden; 
 }
 
-#piechart {
-    width: 500px; 
-    float: right; 
-    padding-top: 0px;
-    padding-bottom: 500px;
-    color: white;
-}
 
 .chartContainer {
     position: absolute;
     top: 0;
     padding-left: 610px;
+    width: 500px; 
+ 
+    padding-top: 150px;
+    padding-bottom: 500px;
+    color: white;
 }
 
 .usernameHeader {
