@@ -156,7 +156,17 @@
         </script>
       </div>
       <div class="grid-item span-2 grid-item-4">News</div>
-      <div class="grid-item span-2 grid-item-5">Quick Actions</div>
+      <div class="grid-item span-2 grid-item-5">Quick Actions
+
+        <form id="twelve" th:action="@{/delete}(content=${cost.content})}" action="/" th:object="${cost}" th:method="delete" method="post">
+            <select class="form-control" th:field="${content}"  id="delete">
+              <option th:each="content : ${content}" th:value="${content}" th:text="${content}"></option>
+            </select>
+            <button  id="submit" value="submit" type="submit">Delete</button>
+          </form>
+
+
+      </div>
   </div>
 
 

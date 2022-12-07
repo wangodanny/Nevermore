@@ -16,10 +16,13 @@ import java.util.Locale;
 import java.util.Date;
 import java.util.Optional;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -87,6 +90,19 @@ return "costs/new";
         model.addAttribute("cost", new Cost());
         // model.addAttribute("post", new Post());
         return "posts/show";
+    }
+    @DeleteMapping("/delete")
+    public RedirectView delete(@ModelAttribute("content") Cost cost, String content ) {
+        //content not being passed in
+        System.out.println(cost);
+        System.out.println("CONTENT HERE:::::");
+        System.out.println(content);
+        //content is null thus this doesnt work
+        Optional<Cost> del = costRepository.findByContent(content);
+        Cost costObj = del.get(); 
+        costRepository.delete(costObj);
+        System.out.println(cost);
+        return new RedirectView("/dashboard");
     }
 }
 
