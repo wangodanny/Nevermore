@@ -96,7 +96,7 @@ public class UsersController {
         
         model.addAttribute("content", userObj.getContentInList());
         model.addAttribute("subs", userObj.getPricesInList());
-        model.addAttribute("ID", userObj.getIDInList());
+        
       
         
 
