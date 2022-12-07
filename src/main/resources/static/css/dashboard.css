@@ -124,6 +124,7 @@ border: 1px solid rgba(255, 255, 255, 0.05);
 
 
 .span-2 {
+    padding-top: 17px;
     grid-column-end: span 3;
     grid-row-end: span 2;
 }
