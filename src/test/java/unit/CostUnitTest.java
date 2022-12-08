@@ -3,19 +3,23 @@ package unit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.makersacademy.nevermore.model.Cost;
+import com.makersacademy.nevermore.model.User;
 
 public class CostUnitTest {
     private Cost cost = new Cost();
     public Date timestamp = new Date();
     public Double price = 5.0;
     public Long userID = (long) 2;
-    public String content = "Disney Plus+";
+    public String content = "Netflix";
 
     @Before
     public void setup(){
@@ -24,7 +28,8 @@ public class CostUnitTest {
         cost.setContent(content);
         cost.setDate(timestamp);
         cost.setCategory("Leisure");
-    }
+
+        }
 
     @Test
     public void costHasCorrectPrice(){
@@ -45,5 +50,6 @@ public class CostUnitTest {
     public void costHasCorrectCategory(){
         assertEquals("Leisure", cost.getCategory());
     }
+
     
 }

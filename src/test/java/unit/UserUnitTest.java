@@ -3,10 +3,15 @@ package unit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.makersacademy.nevermore.model.Cost;
 import com.makersacademy.nevermore.model.User;
 
 public class UserUnitTest {

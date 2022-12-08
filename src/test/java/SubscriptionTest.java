@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
-public class LoginTest {
+public class SubscriptionTest {
 
     WebDriver driver;
     Faker faker;
@@ -34,12 +34,27 @@ public class LoginTest {
     }
 
     @Test
-    public void successfulSignUpRedirectsToSignIn() {
-        driver.get("http://localhost:8080/logon");
+    public void successfulLoginRedirectsToDashboard() {
+        driver.get("http://localhost:8080/");
+        //Directed to login page
+        driver.findElement(By.id("login")).click();
+        //Sign in and get directed to dashboard
         driver.findElement(By.id("username")).sendKeys("danny");
         driver.findElement(By.id("password")).sendKeys("123456");
         driver.findElement(By.id("submit")).click();
+        //Redirect to new subsctiption page
+        driver.findElement(By.id("new-subscription-button")).click();
+        //Check the page is on the new subscription page
         String title = driver.getTitle();
-        Assert.assertEquals("Dashboard", title);
+        Assert.assertEquals("New Cost", title);
+        driver.findElement(By.id("content")).sendKeys("New Content");
+        driver.findElement(By.id("price")).sendKeys("7.99");
+        driver.findElement(By.id("submit")).click();
+        
+        //Test to see if the dashboard is the current branch
+        String title2 = driver.getTitle();
+        Assert.assertEquals("Dashboard", title2);
+
+
     }
 }

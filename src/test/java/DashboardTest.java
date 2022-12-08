@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
-public class LoginTest {
+public class DashboardTest {
 
     WebDriver driver;
     Faker faker;
@@ -34,12 +34,25 @@ public class LoginTest {
     }
 
     @Test
-    public void successfulSignUpRedirectsToSignIn() {
-        driver.get("http://localhost:8080/logon");
+    public void successfulLoginRedirectsToDashboard() {
+        driver.get("http://localhost:8080/");
+        //Directed to home page
+        String title = driver.getTitle();
+        Assert.assertEquals("Homepage", title);
+
+        //Directed to login page
+        driver.findElement(By.id("login")).click();
+        String title2 = driver.getTitle();
+        Assert.assertEquals("Sign in", title2);
+
+        //Sign in and get directed to dashboard
         driver.findElement(By.id("username")).sendKeys("danny");
         driver.findElement(By.id("password")).sendKeys("123456");
         driver.findElement(By.id("submit")).click();
-        String title = driver.getTitle();
-        Assert.assertEquals("Dashboard", title);
+
+        //check if the page is now dashboard
+        String title3 = driver.getTitle();
+        Assert.assertEquals("Dashboard", title3);
+        
     }
 }
