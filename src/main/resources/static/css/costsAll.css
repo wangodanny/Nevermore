@@ -8,6 +8,7 @@ body {
 }
 
 .title {
+    font-size: 45px;
     text-align: center;
     padding-top: 30px;
     padding-bottom: 10px;
@@ -26,14 +27,46 @@ body {
     width: 30%;
     height: 10%;
     display: inline-block;
+   
 }
 
+th {
+    font-size: large;
+    padding-bottom: 10px;
+    padding-left: 0%;
+    text-align: left;
+}
+
+td {
+    font-size: 40px;
+    padding-left: 0%;
+}
+
+.content {
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.prices {
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+
+.delete {
+    padding-top: 45px;
+    padding-bottom: 0px;
+}
 
 .table-left { 
-    width: 50%; float: left; 
+    width: 40%; float: left; padding-left: 40px;
 }
+
+.table-middle {
+    width: 20%; float: right; 
+}
+
 .table-right {
-    width: 50%; float: right; 
+    width: 35%; float: right; 
 }
 .table-container { 
     overflow: hidden; 
@@ -52,7 +85,7 @@ body {
     backdrop-filter: blur(6.5px);
     -webkit-backdrop-filter: blur(6.5px);
     border: 1px solid rgba(255, 255, 255, 0.44);
-    margin: 4rem;
+    margin: 6rem;
 }
 
 .button {
@@ -71,10 +104,113 @@ body {
    
 }
 
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-group-lg.btn, .btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+    margin-bottom: 10px;
+    border-radius: 16px;
+
+}
+
+.btn-primary {
+    color: #fff;
+    background: rgba(255, 177, 43, 0.91);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 177, 43, 1);
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background: rgb(255, 188, 73);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 177, 43, 1);
+    font-weight: bold;
+  }
+
+.btn {
+    display: inline-block;
+    font-family: inherit;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    transition: all .15s ease-in-out;
+
+}
 .btn-width{
     width: 30%;
     display: block;
     display: center;
     margin: 0 auto;
-  }
+    
+}
+.btn-color-secondary{
+    background: rgba(220, 221, 225, 0.769);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.8px);
+    -webkit-backdrop-filter: blur(13.8px);
+    border: 1px solid rgba(220, 221, 225, 0.83);
+    color: #353b48;
+}
+
+.btn-color-secondary:hover{
+    background: rgba(220, 221, 225, 1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(220, 221, 225, 1);
+    color: #000;
+    font-weight: bold;
+}
+
+.btn-delete{
+    padding-top: 10px;
+    width: 100%;
+    background: rgba(192, 32, 32, 0.91);
+}
+
+.btn-delete:hover{
+    width: 100%;
+    background: rgba(255, 43, 43, 0.91);
+}
+
+.btn-subscription{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+    padding-left: 20px;
+    margin-left: 15%;
+}
+
+.btn-update{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: right;
+    margin-right: 15%;
+    
+}
+
 

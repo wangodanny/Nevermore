@@ -86,8 +86,6 @@
           <div id="piechart"></div>
         </body>
             </div>
-        <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" onclick="window.location.href='/costs/new';">Add Subscription</button>
-        <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/all';">View All</button>
       </div>
       <div class="grid-item span-4 grid-item-2">
         <h1>Current Subscriptions</h1>
@@ -96,7 +94,7 @@
             <div class="table-left">
                 <table class="table table-bordered table-content" >
                     <tr th:each="content: ${content}">
-                        <td th:text="${content}"></td>
+                        <td th:text="${content}" class="content"></td>
                     </tr>
                 </table>
             </div>
@@ -106,7 +104,7 @@
                     <tbody>
                         <tr th:each="subs: ${subs}">
                             <td>£</td>
-                            <td th:text="${subs}"></td>
+                            <td th:text="${subs}" class="prices"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -160,7 +158,8 @@
     </div>
 
       <div class="grid-item span-2 grid-item-4">Quick Actions
-
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" onclick="window.location.href='/costs/new';"><i class="fa-solid fa-square-plus"></i> Add Subscription</button>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/all';"><i class="fa-solid fa-list-check"></i> View All</button>
       
       </div>
       
