@@ -14,9 +14,9 @@
     <body>
         <div class="topnav">
           <img th:src='@{/img/nevermore.png}' class="navbar-image">
-            <a href="/dashboard"><i class="fa-solid fa-house"></i> Home</a>
-            <a class="active" href="/costs/all"><i class="fa-solid fa-money-check"></i> Subscriptions</a>
-            <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            <a class="bounce-out-on-hover glow-on-hover"href="/dashboard"><i class="fa-solid fa-house"></i> Home</a>
+            <a class="active bounce-out-on-hover glow-on-hover" href="/costs/all"><i class="fa-solid fa-money-check"></i> Subscriptions</a>
+            <a class="bounce-out-on-hover glow-on-hover" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
             <div class="username">
               <div sec:authorize="isAuthenticated()" >
                 <a><i class="fa-solid fa-user"></i> <span class="name" sec:authentication="name"></span> </a>
@@ -24,11 +24,11 @@
             </div>
           </div>
 
-          <h1 class="title">Current Subscriptions</h1>
-        <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" onclick="window.location.href='/costs/new';"><i class="fa-solid fa-square-plus"></i> Add Subscription</button>
-        <button class="btn btn-lg btn-primary btn-block btn-width btn-update" onclick="window.location.href='/404';"><i class="fa-solid fa-pen-to-square"></i> Update Salary</button>
+          <h1 class="title animated animatedFadeInUp fadeInUp">Current Subscriptions</h1>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription animated animatedFadeInUp fadeInUp" onclick="window.location.href='/costs/new';"><i class="fa-solid fa-square-plus"></i> Add Subscription</button>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-update animated animatedFadeInUp fadeInUp" onclick="window.location.href='/404';"><i class="fa-solid fa-pen-to-square"></i> Update Salary</button>
 
-          <div class="grid-item span-4 grid-item-2">
+          <div class="grid-item span-4 grid-item-2 animated animatedFadeInUp fadeInUp">
             <div class="table-container">
                 <div class="table-left">
                     <table class="table table-bordered table-content" >
@@ -39,7 +39,7 @@
                     </table>
                 </div>
     
-                <div class="table-middle">
+                <div class="table-middle animated animatedFadeInUp fadeInUp">
                     <table class="table table-striped table-costs">
                       <tbody>
                           <tr th:each="id: ${ID}">
@@ -53,7 +53,7 @@
                   </table>
                 </div>
 
-                <div class="table-right">
+                <div class="table-right animated animatedFadeInUp fadeInUp">
                   <table class="table table-striped table-costs">
                     <th>Price</th>
                     <tbody>
