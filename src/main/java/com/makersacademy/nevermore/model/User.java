@@ -107,4 +107,13 @@ public class User {
     return dates;
     }
 
+    public List<Long> getIDInList() {
+        List<Long> ids = new ArrayList<Long>();
+        for (Cost id:getCosts()) {
+            ids.add((id.getId()));
+            
+        }
+    return ids;
+    }
+
 }

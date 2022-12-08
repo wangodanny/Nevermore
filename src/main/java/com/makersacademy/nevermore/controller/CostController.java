@@ -16,10 +16,13 @@ import java.util.Locale;
 import java.util.Date;
 import java.util.Optional;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -75,18 +78,39 @@ return "costs/new";
         return new RedirectView("/dashboard");
     }
 
-    @GetMapping("/costs/{id}")
-    public String show(@PathVariable Long id, Model model){
+    @GetMapping("/costs/all")
+    public String show(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String name = auth.getName();
+        Optional<User> currentUser = userRepository.findByUsername(name); 
+        User userObj = currentUser.get(); 
         
-        Iterable<Cost> costs = costRepository.findAll();
+        // Iterable<Cost> costs = costRepository.findAll();
 
-        ArrayList<Cost> relatedCosts = new ArrayList<>();
+        // ArrayList<Cost> relatedCosts = new ArrayList<>();
 
         
-        model.addAttribute("costs", relatedCosts);
-        model.addAttribute("cost", new Cost());
+        // model.addAttribute("costs", relatedCosts);
+        // model.addAttribute("cost", new Cost());
+
+        model.addAttribute("content", userObj.getContentInList());
+        model.addAttribute("subs", userObj.getPricesInList());
+        model.addAttribute("ID", userObj.getIDInList());
         // model.addAttribute("post", new Post());
-        return "posts/show";
+        return "costs/all";
+    }
+    @DeleteMapping("/costs/{id}")
+    public RedirectView delete(@PathVariable("id") Long id) {
+        //content not being passed in
+        // System.out.println(cost);
+        // System.out.println("CONTENT HERE:::::");
+        // System.out.println(content);
+        //content is null thus this doesnt work
+        Optional<Cost> del = costRepository.findById(id);
+        Cost costObj = del.get(); 
+        costRepository.delete(costObj);
+        System.out.println(costObj);
+        return new RedirectView("/costs/all");
     }
 }
 

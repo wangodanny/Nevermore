@@ -96,6 +96,7 @@ public class UsersController {
         
         model.addAttribute("content", userObj.getContentInList());
         model.addAttribute("subs", userObj.getPricesInList());
+        
       
         
 
@@ -146,5 +147,6 @@ public class UsersController {
 
         return "/dashboard";
     }
+    
 
 }

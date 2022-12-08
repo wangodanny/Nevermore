@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <title>All Payments</title>
+      <link href="/css/navbar.css" rel="stylesheet" />
+      <link href="/css/costsAll.css" rel="stylesheet"/>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="topnav">
+          <img th:src='@{/img/nevermore.png}'>
+            <a href="/dashboard"><i class="fa-solid fa-house"></i> Home</a>
+            <a class="active" href="/costs/all"><i class="fa-solid fa-money-check"></i> Subscriptions</a>
+            <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+            <div class="username">
+              <div sec:authorize="isAuthenticated()" >
+                <a><i class="fa-solid fa-user"></i> <span class="name" sec:authentication="name"></span> </a>
+               </div>
+            </div>
+          </div>
+
+          <h1 class="title">Current Subscriptions</h1>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" onclick="window.location.href='/costs/new';">Add Subscription</button>
+        <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/404';">Delete</button>
+          <div class="grid-item span-4 grid-item-2">
+            <div class="table-container">
+                <div class="table-left">
+                    <table class="table table-bordered table-content" >
+                        <tr th:each="content: ${content}">
+                            <td th:text="${content}"></td>
+                        </tr>
+                    </table>
+                </div>
+    
+                <div class="table-right">
+                    <table class="table table-striped table-costs">
+                        <tbody>
+                            <tr th:each="subs: ${subs}">
+                                <td>£</td>
+                                <td th:text="${subs}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-right">
+                  <table class="table table-striped table-costs">
+                      <tbody>
+                          <tr th:each="id: ${ID}">
+                              <td>ID</td>
+                              <td th:text="${id}"></td>
+                              <td>
+                                  <form th:action="@{/costs/{id}(id=${id})}" th:method="delete">
+                                      <button class="Delete">Delete</button>
+                                  </form>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+    </body>

@@ -9,7 +9,6 @@
     <link href="/css/signin.css" rel="stylesheet"/>
     <link href="/css/navbar.css" rel="stylesheet"/>
     <link href="/css/dashboard.css" rel="stylesheet"/>
-    <link href="/css/graphs.css" rel="stylesheet"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://kit.fontawesome.com/e6fe8c10b9.js" crossorigin="anonymous"></script>
@@ -25,7 +24,7 @@
     <div class="topnav">
     <img th:src='@{/img/nevermore.png}' class="navbar-image">
       <a class="active" href="/dashboard"><i class="fa-solid fa-house"></i>    Home</a>
-      <a href="/costs/new" id="newCost"><i class="fa-solid fa-money-check"></i>    Subscriptions</a>
+      <a href="/costs/all" id="newCost"><i class="fa-solid fa-money-check"></i>    Subscriptions</a>
       <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
       <div class="username">
         <div sec:authorize="isAuthenticated()" >
@@ -73,9 +72,10 @@
                     var options = {
                         backgroundColor: "transparent",
                         fontName: "Poppins",
-                        height: 500,
+                        height: 200,
                         legend: {position: 'none', textStyle: {color: 'white', fontSize: 16}},
                         pieSliceBorderColor: "transparent",
+                        chartArea:{left:0,top:0,width:'100%',height:'100%'}
                     };
                     var chart = new google.visualization.PieChart(document
                             .getElementById('piechart'));
@@ -85,9 +85,10 @@
         <body>
           <div id="piechart"></div>
         </body>
-            </div>
+
         <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" id="new-subscription-button" onclick="window.location.href='/costs/new';">Add Subscription</button>
         <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/';">View All</button>
+
       </div>
       <div class="grid-item span-4 grid-item-2">
         <h1>Current Subscriptions</h1>
@@ -155,8 +156,15 @@
             }
         </script>
       </div>
-      <div class="grid-item span-2 grid-item-4">News</div>
-      <div class="grid-item span-2 grid-item-5">Quick Actions</div>
+      <div class="span-2">
+       <a class="twitter-timeline span-2" data-width="700" data-height="330" data-dnt="true" data-theme="dark" href="https://twitter.com/ftmoney?ref_src=twsrc%5Etfw">Tweets by ftmoney</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+    </div>
+
+      <div class="grid-item span-2 grid-item-4">Quick Actions
+
+      
+      </div>
+      
   </div>
 
 

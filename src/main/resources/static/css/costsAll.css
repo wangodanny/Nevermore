@@ -1,0 +1,80 @@
+
+body {
+    background: rgb(32,13,62);
+    background: linear-gradient(20deg, rgba(32,13,62,1) 0%, rgba(55,9,121,1) 38%, rgba(92,0,198,1) 100%);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.title {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.button {
+    border: none;
+    color: white;
+    background-color: gray;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 12px;
+    margin: 3px 1px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 30%;
+    height: 10%;
+    display: inline-block;
+}
+
+
+.table-left { 
+    width: 50%; float: left; 
+}
+.table-right {
+    width: 50%; float: right; 
+}
+.table-container { 
+    overflow: hidden; 
+}
+
+
+.grid-item {
+    padding-bottom: 580px;
+    padding-left: 70px;
+    padding-top: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.5px);
+    -webkit-backdrop-filter: blur(6.5px);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+    margin: 4rem;
+}
+
+.button {
+    border: none;
+    color: white;
+    background-color: gray;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 12px;
+    margin: 3px 1px;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 30%;
+    height: 10%;
+    display: inline-block;
+   
+}
+
+.btn-width{
+    width: 30%;
+    display: block;
+    display: center;
+    margin: 0 auto;
+  }
+
