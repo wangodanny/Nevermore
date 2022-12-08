@@ -23,9 +23,9 @@
     
     <div class="topnav">
     <img th:src='@{/img/nevermore.png}' class="navbar-image">
-      <a class="active" href="/dashboard"><i class="fa-solid fa-house"></i>    Home</a>
-      <a href="/costs/all" id="newCost"><i class="fa-solid fa-money-check"></i>    Subscriptions</a>
-      <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      <a class="active bounce-out-on-hover glow-on-hover" href="/dashboard"><i class="fa-solid fa-house"></i>    Home</a>
+      <a class= "bounce-out-on-hover glow-on-hover" href="/costs/all" id="newCost"><i class="fa-solid fa-money-check"></i>    Subscriptions</a>
+      <a class="bounce-out-on-hover glow-on-hover" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
       <div class="username">
         <div sec:authorize="isAuthenticated()" >
             <a><i class="fa-solid fa-user"></i> <span class="name" sec:authentication="name"></span> </a>
@@ -38,7 +38,7 @@
     
 
     <div class="grid-layout">
-      <div class="grid-item span-5 grid-item-1">
+      <div class="grid-item span-5 grid-item-1 animated animatedFadeInUp fadeInUp">
         <div class="usernameHeader" sec:authorize="isAuthenticated()">
             <h1 >Hello <span class="name" sec:authentication="name"></span></h1>
           </div>
@@ -85,16 +85,9 @@
         <body>
           <div id="piechart"></div>
         </body>
-<<<<<<< css-dark-magic-2
             </div>
-=======
-
-        <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" id="new-subscription-button" onclick="window.location.href='/costs/new';">Add Subscription</button>
-        <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/';">View All</button>
-
->>>>>>> main
       </div>
-      <div class="grid-item span-4 grid-item-2">
+      <div class="grid-item span-4 grid-item-2 animated animatedFadeInUp fadeInUp">
         <h1>Current Subscriptions</h1>
         <div class="table-container">
 
@@ -120,7 +113,7 @@
         <div id="container" style="height: 400px"></div>
 
       </div>
-      <div class="grid-item span-2 grid-item-3">Lookback
+      <div class="grid-item span-2 grid-item-3 animated animatedFadeInUp fadeInUp">Lookback
         <div id="chart_div"></div>
         <script th:inline="javascript">
             var real_data2 = /*[[${barDataList}]]*/'noValue';
@@ -160,11 +153,11 @@
             }
         </script>
       </div>
-      <div class="span-2">
+      <div class="span-2 animated animatedFadeInUp fadeInUp">
        <a class="twitter-timeline span-2" data-width="700" data-height="330" data-dnt="true" data-theme="dark" href="https://twitter.com/ftmoney?ref_src=twsrc%5Etfw">Tweets by ftmoney</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
     </div>
 
-      <div class="grid-item span-2 grid-item-4">Quick Actions
+      <div class="grid-item span-2 grid-item-4 animated animatedFadeInUp fadeInUp">Quick Actions
         <button class="btn btn-lg btn-primary btn-block btn-width btn-subscription" onclick="window.location.href='/costs/new';"><i class="fa-solid fa-square-plus"></i> Add Subscription</button>
         <button class="btn btn-lg btn-primary btn-block btn-width btn-view-all" onclick="window.location.href='/costs/all';"><i class="fa-solid fa-list-check"></i> View All</button>
       
