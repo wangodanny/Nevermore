@@ -35,7 +35,7 @@ public class CostTest {
 
     @Test
     public void successfulSignUpRedirectsToSignIn() {
-        driver.get("http://localhost:8080/login");
+        driver.get("http://localhost:8080/logon");
         //signs user in
         driver.findElement(By.id("username")).sendKeys("danny");
         driver.findElement(By.id("password")).sendKeys("123456");
