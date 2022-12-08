@@ -3,7 +3,7 @@
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <title>New Cost</title>
+      <title>New Subscription</title>
       <link href="/css/signup.css" rel="stylesheet" type="text/css" />
       <link href="/css/navbar.css" rel="stylesheet" />
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <body>
        
         <div class="topnav">
-          <img th:src='@{/img/nevermore.png}'>
+          <img th:src='@{/img/nevermore.png}' class="navbar-image">
             <a href="/dashboard"><i class="fa-solid fa-house"></i> Home</a>
             <a class="active" href="/costs/all"><i class="fa-solid fa-money-check"></i> Subscriptions</a>
             <a class="" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
@@ -32,7 +32,7 @@
           th:object="${cost}"
           method="post"
         >
-          <h2 class="form-signup-heading">Subscriptions</h2>
+          <h2 class="form-signup-heading">Add Subscription</h2>
           <p>
             <label for="content" class="sr-only">Subscription</label>
             <input
@@ -48,7 +48,8 @@
           <p>
             <label for="price" class="sr-only">Price</label>
             <input
-              type="text"
+              type="number"
+              step="0.01"
               th:field="*{price}"
               class="form-control"
               placeholder="e.g. 5.99"
@@ -64,26 +65,17 @@
             <option value="Leisure" style="background: 5cb85c; color: #fff;"> Leisure</option>
           </select>
           </p>
-          <!-- <p>
-            <label for="date" class="sr-only">Date</label>
-            <input 
-                type="date"
-                th:field="*{date}" 
-                class="form-control"
-                required
-            />
-          </p> -->
           <p>
             <input
               class="btn btn-lg btn-primary btn-block"
               type="submit"
-              value="Submit"
+              value="Save"
               id="submit"
             />
             <input
               class="btn btn-lg btn-primary btn-block btn-color-secondary"
               type="reset"
-              value="Reset"
+              value="Clear"
             />
           </p>
         </form>

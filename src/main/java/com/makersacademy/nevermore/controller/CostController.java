@@ -75,7 +75,7 @@ return "costs/new";
 
         System.out.println(month);
 
-        return new RedirectView("/dashboard");
+        return new RedirectView("/costs/all");
     }
 
     @GetMapping("/costs/all")

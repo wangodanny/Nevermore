@@ -159,10 +159,10 @@ border: 1px solid rgba(255, 255, 255, 0.05);
     position: absolute;
     top: 0;
     padding-left: 610px;
-    width: 500px; 
+    width: 400px; 
  
     padding-top: 150px;
-    padding-bottom: 500px;
+    padding-bottom: 250px;
     color: white;
 }
 
@@ -172,4 +172,23 @@ border: 1px solid rgba(255, 255, 255, 0.05);
 
 #chart-div {
     color: white;
+}
+
+.btn-subscription{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50%;
+    margin-top: 10%;
+    margin-bottom: 7%;
+}
+
+.btn-view-all{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+td {
+    font-size: 23px;
+    padding-left: 0%;
 }
