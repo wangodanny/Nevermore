@@ -20,21 +20,22 @@
   <body>
     <div class="topnav">
         <img th:src='@{/img/nevermore.png}' class="navbar-image">
-          <a class="active bounce-out-on-hover glow-on-hover" href="/homepage"><i class="fa-solid fa-house"></i>  Home</a>
-          <a class= "bounce-out-on-hover glow-on-hover"href="/users/new">Sign Up</a>
-          <a class= "bounce-out-on-hover glow-on-hover" href="/logon">Sign In </a>
+          <a class="active bounce-out-on-hover glow-on-hover" href="/"><i class="fa-solid fa-house"></i>  Home</a>
+          <a class= "bounce-out-on-hover glow-on-hover"href="/users/new"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+          <a class= "bounce-out-on-hover glow-on-hover" href="/logon"><i class="fa-solid fa-door-open"></i> Sign In </a>
       </div>
 
-      <h1 class="title">Nevermore Budgeting</h1>
-      <img class="logo-img" th:src='@{/img/nevermore.png}'>
+      <h1 class="title animated animatedFadeInUp fadeInUp">Nevermore Budgeting</h1>
+      <h2 class="tagline animated animatedFadeInUp fadeInUp">Never Spend More... </h2>
+      <img class="logo-img animated animatedFadeInUp fadeInUp" th:src='@{/img/nevermore.png}'>
 
-      <div class="links">
+      <div class="links animated animatedFadeInUp fadeInUp">
 
             
-            <a href="/users/new" class="home-btn btn-style">Sign Up</a>
+            <a href="/users/new" class="home-btn btn-style btn btn-lg btn-primary btn-block btn-width btn-subscription bounce-out-on-hover glow-on-hover"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
        
        
-            <a href="/logon" id="login" class="home-btn btn-style">Login</a>
+            <a href="/logon" id="login" class="home-btn btn-style btn btn-lg btn-primary btn-block btn-width btn-subscription bounce-out-on-hover glow-on-hover"><i class="fa-solid fa-door-open"></i> Sign In</a>
        
       </div>
   </body>
