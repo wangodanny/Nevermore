@@ -46,3 +46,178 @@
    font-size: xx-large;
    
   }
+
+  .tagline{
+    color: white;
+    text-align: center;
+    margin: auto;
+    margin-top: 70px;
+   font-size: large;
+   
+  }
+
+  .glow-on-hover {
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, rgba(255,218,0,1) 0%, rgba(221,191,15,1) 23%, rgba(122,45,155,1) 50%, rgba(122,45,155,1) 70%, rgba(100,33,139,1) 80%, rgba(70,16,116,1) 92%, rgba(46,2,97,1) 100%);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.animatedFadeInUp {
+  opacity: 0
+}
+
+.fadeInUp {
+  opacity: 0;
+  animation-name: fadeInUp;
+  -webkit-animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0)
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-group-lg.btn, .btn-lg {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  margin-bottom: 10px;
+  border-radius: 16px;
+
+}
+
+.btn-primary {
+  color: #fff;
+  background: rgba(255, 177, 43, 0.91);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 177, 43, 1);
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background: rgb(255, 188, 73);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 177, 43, 1);
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  font-family: inherit;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  transition: all .15s ease-in-out;
+
+}
+.btn-width{
+  width: 60%;
+  display: block;
+  display: center;
+  margin: 0 auto;
+  
+}
+.btn-color-secondary{
+  background: rgba(220, 221, 225, 0.769);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13.8px);
+  -webkit-backdrop-filter: blur(13.8px);
+  border: 1px solid rgba(220, 221, 225, 0.83);
+  color: #353b48;
+}
+
+.btn-color-secondary:hover{
+  background: rgba(220, 221, 225, 1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 221, 225, 1);
+  color: #000;
+  font-weight: bold;
+}

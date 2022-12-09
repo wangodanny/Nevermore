@@ -25,7 +25,7 @@ public class HomeController {
         if (principal != null) {
             return "redirect:/dashboard";
           }
-	
+        //return "/index";
 		return "/home/homepage";
 	}
 
